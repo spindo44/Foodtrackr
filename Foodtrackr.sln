@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37111.16 d17.14
+VisualStudioVersion = 17.14.37111.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodtrackr", "Foodtrackr\Foodtrackr.csproj", "{904F4700-909F-4DD8-A808-BEA5F31BA2D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodtrackr.Api", "Foodtrackr.Api\Foodtrackr.Api.csproj", "{051A0AA0-AB26-4E93-B0A1-9C99F50AA8D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodtrackr.Tests", "Foodtrackr.Tests\Foodtrackr.Tests.csproj", "{37B9931F-19E4-4135-A169-A3C77DA2603E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +21,14 @@ Global
 		{904F4700-909F-4DD8-A808-BEA5F31BA2D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{904F4700-909F-4DD8-A808-BEA5F31BA2D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{904F4700-909F-4DD8-A808-BEA5F31BA2D7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{051A0AA0-AB26-4E93-B0A1-9C99F50AA8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051A0AA0-AB26-4E93-B0A1-9C99F50AA8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051A0AA0-AB26-4E93-B0A1-9C99F50AA8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051A0AA0-AB26-4E93-B0A1-9C99F50AA8D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37B9931F-19E4-4135-A169-A3C77DA2603E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B9931F-19E4-4135-A169-A3C77DA2603E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B9931F-19E4-4135-A169-A3C77DA2603E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B9931F-19E4-4135-A169-A3C77DA2603E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
