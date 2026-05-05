@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-
+using Foodtrackr.Views;
 namespace Foodtrackr
 {
     public static class MauiProgram
@@ -18,7 +18,7 @@ namespace Foodtrackr
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddTransient<RegisterPage>();
             return builder.Build();
         }
     }
