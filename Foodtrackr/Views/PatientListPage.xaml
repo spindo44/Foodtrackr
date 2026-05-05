@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Foodtrackr.Views.PatientListPage"
+             Title="My Patients"
+             BackgroundColor="#F5F5F5">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- HEADER -->
+        <VerticalStackLayout Grid.Row="0" 
+                             BackgroundColor="#4CAF50" 
+                             Padding="20,40,20,20">
+            <Label Text="Foodtrackr"
+                   TextColor="White"
+                   FontSize="28"
+                   FontAttributes="Bold"/>
+            <Label Text="Your Patients"
+                   TextColor="#E8F5E9"
+                   FontSize="16"/>
+        </VerticalStackLayout>
+
+        <!-- PATIENT LIST -->
+        <CollectionView Grid.Row="1"
+                        x:Name="PatientCollection"
+                        Margin="20,10">
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" 
+                                     HorizontalOptions="Center"
+                                     Spacing="10">
+                    <Label Text="No patients yet."
+                           TextColor="#AAAAAA"
+                           FontSize="18"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Tap the button below to add your first patient."
+                           TextColor="#AAAAAA"
+                           FontSize="14"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="0,6"
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 12"
+                            StrokeThickness="0"
+                            Padding="20">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout Grid.Column="0" Spacing="4">
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="#2D2D2D"/>
+                                <Label FontSize="14"
+                                       TextColor="#888888">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Age}"/>
+                                            <Span Text=" yrs · "/>
+                                            <Span Text="{Binding Gender}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="1"
+                                   Text="›"
+                                   FontSize="28"
+                                   TextColor="#4CAF50"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnPatientTapped"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- ADD PATIENT BUTTON -->
+        <Button Grid.Row="2"
+                Text="+ Add New Patient"
+                Clicked="OnAddPatientClicked"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                HeightRequest="50"
+                Margin="20"/>
+
+    </Grid>
+</ContentPage>
