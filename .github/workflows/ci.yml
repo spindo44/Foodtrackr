@@ -18,11 +18,14 @@ jobs:
       with:
         dotnet-version: 9.0.x
 
+    - name: Install MAUI workloads
+      run: dotnet workload install maui android ios maccatalyst
+
     - name: Restore dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet build --no-restore
+    - name: Build API
+      run: dotnet build Foodtrackr.Api/Foodtrackr.Api.csproj --no-restore
 
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    - name: Run Tests
+      run: dotnet test Foodtrackr.Tests/Foodtrackr.Tests.csproj --no-build --verbosity normal
