@@ -2,70 +2,113 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Foodtrackr.Views.PatientListPage"
-             Title="My Patients"
-             BackgroundColor="#F5F5F5">
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{AppThemeBinding Light=#F0F4F0, Dark=#000000}">
 
     <Grid RowDefinitions="Auto,*,Auto">
 
         <!-- HEADER -->
-        <VerticalStackLayout Grid.Row="0" 
-                             BackgroundColor="#4CAF50" 
-                             Padding="20,40,20,20">
-            <Label Text="Foodtrackr"
-                   TextColor="White"
-                   FontSize="28"
-                   FontAttributes="Bold"/>
-            <Label Text="Your Patients"
-                   TextColor="#E8F5E9"
-                   FontSize="16"/>
-        </VerticalStackLayout>
+        <Grid Grid.Row="0"
+              BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#111111}"
+              Padding="24,50,24,20"
+              ColumnDefinitions="*,Auto">
+
+            <VerticalStackLayout Grid.Column="0" Spacing="2">
+                <HorizontalStackLayout>
+                    <Label Text="Food"
+                           TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
+                           FontSize="26"
+                           FontAttributes="Bold"/>
+                    <Label Text="trackr"
+                           TextColor="#3D8B5E"
+                           FontSize="26"
+                           FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+                <Label Text="Your Patients"
+                       TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                       FontSize="14"/>
+            </VerticalStackLayout>
+
+            <Button Grid.Column="1"
+                    x:Name="ThemeToggleBtn"
+                    Text="🌙"
+                    Clicked="OnThemeToggleClicked"
+                    BackgroundColor="#3D8B5E"
+                    TextColor="White"
+                    CornerRadius="20"
+                    HeightRequest="40"
+                    WidthRequest="40"
+                    Padding="0"
+                    VerticalOptions="Center"/>
+        </Grid>
 
         <!-- PATIENT LIST -->
         <CollectionView Grid.Row="1"
                         x:Name="PatientCollection"
-                        Margin="20,10">
+                        Margin="20,12">
             <CollectionView.EmptyView>
-                <VerticalStackLayout VerticalOptions="Center" 
+                <VerticalStackLayout VerticalOptions="Center"
                                      HorizontalOptions="Center"
-                                     Spacing="10">
+                                     Spacing="8"
+                                     Margin="0,60,0,0">
+                    <Label Text="🩺"
+                           FontSize="48"
+                           HorizontalOptions="Center"/>
                     <Label Text="No patients yet."
-                           TextColor="#AAAAAA"
+                           TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
                            FontSize="18"
+                           FontAttributes="Bold"
                            HorizontalOptions="Center"/>
                     <Label Text="Tap the button below to add your first patient."
-                           TextColor="#AAAAAA"
+                           TextColor="{AppThemeBinding Light=#9AAA9A, Dark=#555555}"
                            FontSize="14"
-                           HorizontalOptions="Center"/>
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
                 </VerticalStackLayout>
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border Margin="0,6"
-                            BackgroundColor="White"
-                            StrokeShape="RoundRectangle 12"
-                            StrokeThickness="0"
-                            Padding="20">
-                        <Grid ColumnDefinitions="*,Auto">
-                            <VerticalStackLayout Grid.Column="0" Spacing="4">
+                    <Border Margin="0,5"
+                            BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                            StrokeShape="RoundRectangle 16"
+                            Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                            StrokeThickness="1"
+                            Padding="20,16">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <!-- AVATAR -->
+                            <Border Grid.Column="0"
+                                    BackgroundColor="#3D8B5E"
+                                    StrokeShape="RoundRectangle 24"
+                                    StrokeThickness="0"
+                                    HeightRequest="48"
+                                    WidthRequest="48"
+                                    Margin="0,0,14,0">
+                                <Label Text="👤"
+                                       FontSize="22"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
                                 <Label Text="{Binding Name}"
-                                       FontSize="18"
+                                       FontSize="17"
                                        FontAttributes="Bold"
-                                       TextColor="#2D2D2D"/>
-                                <Label FontSize="14"
-                                       TextColor="#888888">
+                                       TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"/>
+                                <Label FontSize="13"
+                                       TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding Age}"/>
-                                            <Span Text=" yrs · "/>
+                                            <Span Text=" yrs  ·  "/>
                                             <Span Text="{Binding Gender}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                             </VerticalStackLayout>
-                            <Label Grid.Column="1"
+                            <Label Grid.Column="2"
                                    Text="›"
-                                   FontSize="28"
-                                   TextColor="#4CAF50"
+                                   FontSize="26"
+                                   TextColor="#3D8B5E"
                                    VerticalOptions="Center"/>
                         </Grid>
                         <Border.GestureRecognizers>
@@ -76,16 +119,16 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- ADD PATIENT BUTTON -->
+        <!-- ADD BUTTON -->
         <Button Grid.Row="2"
                 Text="+ Add New Patient"
                 Clicked="OnAddPatientClicked"
-                BackgroundColor="#4CAF50"
+                BackgroundColor="#3D8B5E"
                 TextColor="White"
                 FontAttributes="Bold"
-                CornerRadius="10"
-                HeightRequest="50"
-                Margin="20"/>
+                CornerRadius="14"
+                HeightRequest="52"
+                Margin="20,10,20,30"/>
 
     </Grid>
 </ContentPage>

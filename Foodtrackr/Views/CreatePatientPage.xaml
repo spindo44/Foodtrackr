@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Foodtrackr.Views.CreatePatientPage"
+             Title="New Patient"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+
+            <Label Text="Patient Demographics"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                   Margin="0,20,0,5"/>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="NameEntry"
+                       Placeholder="Full Name"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="AgeEntry"
+                       Placeholder="Age"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       Keyboard="Numeric"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,5">
+                <Picker x:Name="GenderPicker"
+                        Title="Select Gender"
+                        TitleColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                        TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                        BackgroundColor="Transparent">
+                    <Picker.Items>
+                        <x:String>Male</x:String>
+                        <x:String>Female</x:String>
+                        <x:String>Other</x:String>
+                        <x:String>Prefer not to say</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Border>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="EthnicityEntry"
+                       Placeholder="Ethnicity"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Body Measurements"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                   Margin="0,10,0,5"/>
+
+            <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                <Label Text="Metric"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       VerticalOptions="Center"
+                       FontSize="16"/>
+                <Switch x:Name="UnitSwitch"
+                        IsToggled="False"
+                        OnColor="#4CAF50"
+                        Toggled="OnUnitSwitchToggled"/>
+                <Label Text="Imperial"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       VerticalOptions="Center"
+                       FontSize="16"/>
+            </HorizontalStackLayout>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="WeightEntry"
+                       Placeholder="Weight (kg)"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       Keyboard="Numeric"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="HeightEntry"
+                       Placeholder="Height (cm)"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       Keyboard="Numeric"
+                       BackgroundColor="Transparent"/>
+            </Border>
+
+            <Label Text="Medical Information"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                   Margin="0,10,0,5"/>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,5">
+                <Editor x:Name="MedicalConditionsEditor"
+                        Placeholder="Medical conditions (e.g. diabetes, hypertension)"
+                        PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                        TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                        BackgroundColor="Transparent"
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="80"/>
+            </Border>
+
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,5">
+                <Editor x:Name="DietaryRestrictionsEditor"
+                        Placeholder="Dietary restrictions (e.g. vegetarian, gluten-free)"
+                        PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                        TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                        BackgroundColor="Transparent"
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="80"/>
+            </Border>
+
+            <Label x:Name="ErrorLabel"
+                   TextColor="Red"
+                   HorizontalOptions="Center"
+                   IsVisible="False"/>
+
+            <Button Text="Save Patient"
+                    Clicked="OnSavePatientClicked"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Margin="0,10,0,30"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

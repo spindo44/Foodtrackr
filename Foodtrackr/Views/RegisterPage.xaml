@@ -2,42 +2,93 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Foodtrackr.Views.RegisterPage"
-             Title="Register">
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="15">
+        <VerticalStackLayout Spacing="15" Padding="30" VerticalOptions="Center">
 
-            <Label Text="Foodtrackr"
+            <Label Text="Create Account"
                    FontSize="32"
                    FontAttributes="Bold"
                    HorizontalOptions="Center"
-                   TextColor="#2E75B6"/>
+                   TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                   Margin="0,40,0,0"/>
 
-            <Label Text="Create your account"
+            <Label Text="Join Foodtrackr today"
                    FontSize="16"
                    HorizontalOptions="Center"
-                   TextColor="Gray"/>
+                   TextColor="{AppThemeBinding Light=#888888, Dark=#AAAAAA}"
+                   Margin="0,0,0,20"/>
 
-            <Entry x:Name="EmailEntry"
-                   Placeholder="Email"
-                   Keyboard="Email"/>
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="EmailEntry"
+                       Placeholder="Email"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       Keyboard="Email"
+                       BackgroundColor="Transparent"/>
+            </Border>
 
-            <Entry x:Name="PasswordEntry"
-                   Placeholder="Password"
-                   IsPassword="True"/>
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="PasswordEntry"
+                       Placeholder="Password"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       IsPassword="True"
+                       BackgroundColor="Transparent"/>
+            </Border>
 
-            <Entry x:Name="ConfirmPasswordEntry"
-                   Placeholder="Confirm Password"
-                   IsPassword="True"/>
+            <Border StrokeThickness="1"
+                    StrokeShape="RoundRectangle 10"
+                    BackgroundColor="White"
+                    Stroke="#DDDDDD"
+                    Padding="15,0">
+                <Entry x:Name="ConfirmPasswordEntry"
+                       Placeholder="Confirm Password"
+                       PlaceholderColor="{AppThemeBinding Light=#AAAAAA, Dark=#666666}"
+                       TextColor="{AppThemeBinding Light=#2D2D2D, Dark=#F5F5F5}"
+                       IsPassword="True"
+                       BackgroundColor="Transparent"/>
+            </Border>
 
             <Label x:Name="ErrorLabel"
                    TextColor="Red"
+                   HorizontalOptions="Center"
                    IsVisible="False"/>
 
             <Button Text="Register"
-                    BackgroundColor="#2E75B6"
+                    Clicked="OnRegisterClicked"
+                    BackgroundColor="#4CAF50"
                     TextColor="White"
-                    Clicked="OnRegisterClicked"/>
+                    FontAttributes="Bold"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Margin="0,10,0,0"/>
+
+            <Label HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLoginTapped"/>
+                </Label.GestureRecognizers>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Already have an account? "
+                              TextColor="{AppThemeBinding Light=#888888, Dark=#AAAAAA}"/>
+                        <Span Text="Log In"
+                              TextColor="#4CAF50"
+                              FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
         </VerticalStackLayout>
     </ScrollView>

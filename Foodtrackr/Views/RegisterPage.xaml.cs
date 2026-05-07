@@ -34,7 +34,6 @@ namespace Foodtrackr.Views
             try
             {
                 var response = await _httpClient.PostAsync("/api/auth/register", content);
-
                 if (response.IsSuccessStatusCode)
                 {
                     await DisplayAlert("Success", "Account created! Please log in.", "OK");
@@ -51,6 +50,11 @@ namespace Foodtrackr.Views
                 ErrorLabel.Text = "Could not connect to server.";
                 ErrorLabel.IsVisible = true;
             }
+        }
+
+        private async void OnLoginTapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 }

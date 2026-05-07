@@ -1,3 +1,5 @@
+using Foodtrackr.Helpers;
+
 namespace Foodtrackr.Views
 {
     public partial class LoginPage : ContentPage
@@ -11,6 +13,19 @@ namespace Foodtrackr.Views
             {
                 BaseAddress = new Uri("http://localhost:5000")
             };
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ThemeToggleBtn.Text = ThemeHelper.IsDarkMode() ? "??" : "??";
+        }
+
+        private void OnThemeToggleClicked(object sender, EventArgs e)
+        {
+            bool isDark = !ThemeHelper.IsDarkMode();
+            ThemeHelper.SetTheme(isDark);
+            ThemeToggleBtn.Text = isDark ? "??" : "??";
         }
 
         private async void OnLoginClicked(object sender, EventArgs e)
@@ -35,11 +50,8 @@ namespace Foodtrackr.Views
             try
             {
                 var response = await _httpClient.PostAsync("/api/auth/login", content);
-
                 if (response.IsSuccessStatusCode)
-                {
                     await Shell.Current.GoToAsync("//PatientListPage");
-                }
                 else
                 {
                     ErrorLabel.Text = "Invalid email or password.";
@@ -51,6 +63,11 @@ namespace Foodtrackr.Views
                 ErrorLabel.Text = "Could not connect to server.";
                 ErrorLabel.IsVisible = true;
             }
+        }
+
+        private async void OnDevBypassClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//PatientListPage");
         }
 
         private async void OnRegisterTapped(object sender, EventArgs e)

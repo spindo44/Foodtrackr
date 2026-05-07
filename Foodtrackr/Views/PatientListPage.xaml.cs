@@ -1,3 +1,4 @@
+﻿using Foodtrackr.Helpers;
 using Foodtrackr.Models;
 
 namespace Foodtrackr.Views
@@ -12,19 +13,25 @@ namespace Foodtrackr.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            ThemeToggleBtn.Text = ThemeHelper.IsDarkMode() ? "☀️" : "🌙";
             LoadPatients();
+        }
+
+        private void OnThemeToggleClicked(object sender, EventArgs e)
+        {
+            bool isDark = !ThemeHelper.IsDarkMode();
+            ThemeHelper.SetTheme(isDark);
+            ThemeToggleBtn.Text = isDark ? "☀️" : "🌙";
         }
 
         private void LoadPatients()
         {
-            // Mock data for Sprint 1 - will connect to API in Sprint 2
             var patients = new List<Patient>
             {
                 new Patient { Name = "John Smith", Age = 45, Gender = "Male" },
                 new Patient { Name = "Sarah Johnson", Age = 32, Gender = "Female" },
                 new Patient { Name = "Mike Wilson", Age = 67, Gender = "Male" }
             };
-
             PatientCollection.ItemsSource = patients;
         }
 
@@ -35,8 +42,7 @@ namespace Foodtrackr.Views
 
         private async void OnPatientTapped(object sender, EventArgs e)
         {
-            // Will navigate to patient detail in Sprint 2
-            await DisplayAlert("Coming Soon", "Patient details coming in Sprint 2!", "OK");
+            await Shell.Current.GoToAsync("//FoodLogPage");
         }
     }
 }
