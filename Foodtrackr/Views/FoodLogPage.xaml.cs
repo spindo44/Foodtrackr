@@ -1,63 +1,100 @@
-﻿using Foodtrackr.Helpers;
-using Foodtrackr.Models;
+﻿using Foodtrackr.Models;
+using Foodtrackr.Services;
 
 namespace Foodtrackr.Views
 {
     public partial class FoodLogPage : ContentPage
     {
-        private List<FoodLogEntry> _entries = new();
+        private readonly ApiService _api = new();
+        private int _patientId;
+        private string _patientName = string.Empty;
+        private DateTime _selectedDate = DateTime.Today;
 
         public FoodLogPage()
         {
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        public void Init(int patientId, string patientName)
+        {
+            _patientId = patientId;
+            _patientName = patientName;
+            PatientNameLabel.Text = patientName;
+        }
+
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ThemeToggleBtn.Text = ThemeHelper.IsDarkMode() ? "☀️" : "🌙";
-            LoadMockData();
+            await LoadEntriesAsync();
         }
 
-        private void OnThemeToggleClicked(object sender, EventArgs e)
+        private async Task LoadEntriesAsync()
         {
-            bool isDark = !ThemeHelper.IsDarkMode();
-            ThemeHelper.SetTheme(isDark);
-            ThemeToggleBtn.Text = isDark ? "☀️" : "🌙";
-        }
-
-        private void LoadMockData()
-        {
-            // Mock data for Sprint 1 - replaced with real API in Sprint 2
-            _entries = new List<FoodLogEntry>
+            await DisplayAlert("Debug", $"Loading for patientId: {_patientId}, date: {_selectedDate:yyyy-MM-dd}", "OK");
+            try
             {
-                new FoodLogEntry { FoodName = "Oats (cooked)", PortionGrams = 150, MealType = "Breakfast", Calories = 166, Protein = 6, Carbs = 28, Fat = 3 },
-                new FoodLogEntry { FoodName = "Banana", PortionGrams = 120, MealType = "Breakfast", Calories = 107, Protein = 1, Carbs = 27, Fat = 0 },
-                new FoodLogEntry { FoodName = "Chicken Breast", PortionGrams = 200, MealType = "Lunch", Calories = 330, Protein = 62, Carbs = 0, Fat = 7 },
-                new FoodLogEntry { FoodName = "Brown Rice", PortionGrams = 180, MealType = "Lunch", Calories = 216, Protein = 5, Carbs = 45, Fat = 2 },
-            };
-
-            FoodLogCollection.ItemsSource = _entries;
-            UpdateTotals();
+                var entries = await _api.GetLogEntriesAsync(_patientId, _selectedDate);
+                FoodLogCollection.ItemsSource = entries;
+                UpdateTotals(entries);
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Could not load entries: {ex.Message}", "OK");
+            }
         }
 
-        private void UpdateTotals()
+        private void UpdateTotals(List<FoodLogEntry> entries)
         {
-            TotalCaloriesLabel.Text = _entries.Sum(e => e.Calories).ToString();
-            TotalProteinLabel.Text = _entries.Sum(e => e.Protein) + "g";
-            TotalCarbsLabel.Text = _entries.Sum(e => e.Carbs) + "g";
-            TotalFatLabel.Text = _entries.Sum(e => e.Fat) + "g";
+            double totalCalories = entries.Sum(e => e.Calories);
+            double totalProtein = entries.Sum(e => e.Protein);
+            double totalCarbs = entries.Sum(e => e.Carbs);
+            double totalFat = entries.Sum(e => e.Fat);
+
+            TotalCaloriesLabel.Text = $"{totalCalories:0} kcal";
+            TotalProteinLabel.Text = $"{totalProtein:0.0}g protein";
+            TotalCarbsLabel.Text = $"{totalCarbs:0.0}g carbs";
+            TotalFatLabel.Text = $"{totalFat:0.0}g fat";
         }
 
-        private async void OnLogFoodClicked(object sender, EventArgs e)
+        private async void OnAddFoodClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Coming Soon",
-                "Food search coming in Sprint 2 with NZ FOODfiles database!", "OK");
+            var searchPage = new FoodSearchPage(_patientId, _patientName);
+            await Navigation.PushAsync(searchPage);
+        }
+
+        private async void OnDateChanged(object sender, DateChangedEventArgs e)
+        {
+            _selectedDate = e.NewDate;
+            await LoadEntriesAsync();
+        }
+
+        private async void OnDeleteEntryTapped(object sender, EventArgs e)
+        {
+            if (sender is Button btn && btn.CommandParameter is int entryId)
+            {
+                bool confirm = await DisplayAlert("Delete", "Remove this entry?", "Yes", "No");
+                if (!confirm) return;
+                await _api.DeleteLogEntryAsync(entryId);
+                await LoadEntriesAsync();
+            }
+        }
+
+        private async void OnViewNutritionClicked(object sender, EventArgs e)
+        {
+            var page = new NutritionPage(_patientId, _patientName, _selectedDate);
+            await Navigation.PushAsync(page);
         }
 
         private async void OnBackClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//PatientListPage");
+            await Navigation.PopAsync();
+        }
+
+        private void OnThemeToggleClicked(object sender, EventArgs e)
+        {
+            bool isDark = !Foodtrackr.Helpers.ThemeHelper.IsDarkMode();
+            Foodtrackr.Helpers.ThemeHelper.SetTheme(isDark);
+            ThemeToggleBtn.Text = isDark ? "☀️" : "🌙";
         }
     }
 }

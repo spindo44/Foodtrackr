@@ -49,9 +49,21 @@ namespace Foodtrackr.Views
 
             try
             {
-                var response = await _httpClient.PostAsync("/api/auth/login", content);
+                var handler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = (m, c, ch, e) => true
+                };
+                var http = new HttpClient(handler) { BaseAddress = new Uri("https://10.0.2.2:7191") };
+                var response = await http.PostAsync("/api/auth/login", content);
+
                 if (response.IsSuccessStatusCode)
+                {
+                    var body = await response.Content.ReadAsStringAsync();
+                    var doc = System.Text.Json.JsonDocument.Parse(body);
+                    var token = doc.RootElement.GetProperty("token").GetString()!;
+                    Foodtrackr.Services.ApiService.SetToken(token);
                     await Shell.Current.GoToAsync("//PatientListPage");
+                }
                 else
                 {
                     ErrorLabel.Text = "Invalid email or password.";

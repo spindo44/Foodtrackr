@@ -1,4 +1,5 @@
 using Foodtrackr.Models;
+using Foodtrackr.Services;
 
 namespace Foodtrackr.Views
 {
@@ -31,7 +32,6 @@ namespace Foodtrackr.Views
                 ErrorLabel.IsVisible = true;
                 return;
             }
-
             if (string.IsNullOrWhiteSpace(AgeEntry.Text) ||
                 !int.TryParse(AgeEntry.Text, out int age))
             {
@@ -57,9 +57,26 @@ namespace Foodtrackr.Views
                 DietaryRestrictions = DietaryRestrictionsEditor.Text ?? string.Empty
             };
 
-            await DisplayAlert("Success",
-                $"Patient {patient.Name} saved successfully!", "OK");
-            await Shell.Current.GoToAsync("//PatientListPage");
+            try
+            {
+                var api = new Foodtrackr.Services.ApiService();
+                var created = await api.CreatePatientAsync(patient);
+
+                if (created == null)
+                {
+                    ErrorLabel.Text = "Could not save patient. Please try again.";
+                    ErrorLabel.IsVisible = true;
+                    return;
+                }
+
+                await DisplayAlert("Success", $"Patient {created.Name} saved successfully!", "OK");
+                await Shell.Current.GoToAsync("//PatientListPage");
+            }
+            catch (Exception ex)
+            {
+                ErrorLabel.Text = $"Error: {ex.Message}";
+                ErrorLabel.IsVisible = true;
+            }
         }
     }
 }

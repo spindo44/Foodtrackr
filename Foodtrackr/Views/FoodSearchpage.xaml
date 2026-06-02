@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Foodtrackr.Models"
+             x:Class="Foodtrackr.Views.FoodSearchPage"
+             Title="Search Food"
+             BackgroundColor="{AppThemeBinding Light=#F0F4F0, Dark=#000000}">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        
+        <Grid Grid.Row="0"
+              BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#111111}"
+              Padding="24,50,24,20"
+              ColumnDefinitions="Auto,*">
+            <Button Grid.Column="0" Text="✕" Clicked="OnCloseClicked"
+                    BackgroundColor="Transparent" TextColor="#3D8B5E"
+                    FontSize="20" Padding="0" WidthRequest="40"/>
+            <Label Grid.Column="1" Text="Search Food"
+                   TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
+                   FontSize="20" FontAttributes="Bold"
+                   VerticalOptions="Center" Margin="8,0,0,0"/>
+        </Grid>
+
+        
+        <VerticalStackLayout Grid.Row="1" Padding="20,12" Spacing="10">
+            <Border StrokeShape="RoundRectangle 12"
+                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#333333}"
+                    StrokeThickness="1"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#111111}">
+                <SearchBar x:Name="SearchEntry"
+                           Placeholder="Search NZ FOODfiles..."
+                           TextChanged="OnSearchTextChanged"
+                           BackgroundColor="Transparent"
+                           TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"/>
+            </Border>
+
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
+                <Button x:Name="BtnBreakfast" Text="Breakfast" Clicked="OnMealTypeSelected"
+                        BackgroundColor="#3D8B5E" TextColor="White"
+                        CornerRadius="10" FontSize="12" HeightRequest="36"/>
+                <Button x:Name="BtnLunch" Text="Lunch" Grid.Column="1" Clicked="OnMealTypeSelected"
+                        BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                        TextColor="{AppThemeBinding Light=#3D8B5E, Dark=#AAAAAA}"
+                        CornerRadius="10" FontSize="12" HeightRequest="36"/>
+                <Button x:Name="BtnDinner" Text="Dinner" Grid.Column="2" Clicked="OnMealTypeSelected"
+                        BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                        TextColor="{AppThemeBinding Light=#3D8B5E, Dark=#AAAAAA}"
+                        CornerRadius="10" FontSize="12" HeightRequest="36"/>
+                <Button x:Name="BtnSnack" Text="Snack" Grid.Column="3" Clicked="OnMealTypeSelected"
+                        BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                        TextColor="{AppThemeBinding Light=#3D8B5E, Dark=#AAAAAA}"
+                        CornerRadius="10" FontSize="12" HeightRequest="36"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        
+        <CollectionView Grid.Row="2" x:Name="ResultsCollection" Margin="20,0,20,0">
+            <CollectionView.EmptyView>
+                <Label Text="Search for a food above."
+                       TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                       HorizontalOptions="Center" Margin="0,40,0,0"/>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:FoodSearchResult">
+                    <Border Margin="0,5"
+                            BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                            StrokeShape="RoundRectangle 16"
+                            Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                            StrokeThickness="1" Padding="16,12">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout Grid.Column="0" Spacing="3">
+                                <Label Text="{Binding FoodName}" FontSize="14"
+                                       FontAttributes="Bold"
+                                       TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
+                                       LineBreakMode="TailTruncation" MaxLines="2"/>
+                                <Label FontSize="12"
+                                       TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding EnergyKcal, StringFormat='{0:0}'}"/>
+                                            <Span Text=" kcal  ·  P:"/>
+                                            <Span Text="{Binding ProteinG, StringFormat='{0:0.#}'}"/>
+                                            <Span Text="g  ·  C:"/>
+                                            <Span Text="{Binding CarbohydrateG, StringFormat='{0:0.#}'}"/>
+                                            <Span Text="g  ·  F:"/>
+                                            <Span Text="{Binding FatG, StringFormat='{0:0.#}'}"/>
+                                            <Span Text="g  (per 100g)"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Button Grid.Column="1" Text="Add"
+                                    BackgroundColor="#3D8B5E" TextColor="White"
+                                    CornerRadius="8" FontSize="13"
+                                    HeightRequest="36" WidthRequest="56"
+                                    Clicked="OnAddFoodClicked"
+                                    CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="3"
+                Text="+ Log Custom Food"
+                Clicked="OnAddCustomFoodClicked"
+                BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                TextColor="#3D8B5E"
+                FontSize="14"
+                Margin="20,8,20,20"
+                CornerRadius="12"
+                HeightRequest="44"/>
+
+    </Grid>
+</ContentPage>

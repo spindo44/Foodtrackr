@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Foodtrackr.Views.NutritionPage"
+             Title="Nutrition Analysis"
+             BackgroundColor="{AppThemeBinding Light=#F0F4F0, Dark=#000000}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="20">
+
+            <!-- HEADER -->
+            <Grid ColumnDefinitions="*,Auto" Margin="0,40,0,0">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label x:Name="PatientNameLabel" FontSize="22" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"/>
+                    <Label x:Name="DateLabel" FontSize="14"
+                           TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                </VerticalStackLayout>
+                <Button Grid.Column="1" Text="← Back" Clicked="OnBackClicked"
+                        BackgroundColor="Transparent" TextColor="#3D8B5E" FontSize="14"/>
+            </Grid>
+
+            <!-- ENERGY SUMMARY CARD -->
+            <Border BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                    StrokeThickness="1" Padding="20">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Energy" FontSize="13" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label x:Name="CaloriesActualLabel" FontSize="32" FontAttributes="Bold"
+                               TextColor="#3D8B5E" Grid.Column="0"/>
+                        <Label x:Name="CaloriesTargetLabel" FontSize="14"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                               VerticalOptions="End" Grid.Column="1"/>
+                    </Grid>
+                    <ProgressBar x:Name="CaloriesBar" ProgressColor="#3D8B5E"
+                                 BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                                 HeightRequest="8"/>
+                    <Label x:Name="CaloriesStatusLabel" FontSize="12" HorizontalOptions="End"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- MACROS GRID -->
+            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+
+                <!-- PROTEIN -->
+                <Border Grid.Column="0"
+                        BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                        StrokeShape="RoundRectangle 16"
+                        Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                        StrokeThickness="1" Padding="14,12">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Protein" FontSize="12"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <Label x:Name="ProteinActualLabel" FontSize="20" FontAttributes="Bold"
+                               TextColor="#3D8B5E"/>
+                        <Label x:Name="ProteinTargetLabel" FontSize="11"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <ProgressBar x:Name="ProteinBar" ProgressColor="#3D8B5E"
+                                     BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                                     HeightRequest="6"/>
+                        <Label x:Name="ProteinStatusLabel" FontSize="11" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- CARBS -->
+                <Border Grid.Column="1"
+                        BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                        StrokeShape="RoundRectangle 16"
+                        Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                        StrokeThickness="1" Padding="14,12">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Carbs" FontSize="12"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <Label x:Name="CarbsActualLabel" FontSize="20" FontAttributes="Bold"
+                               TextColor="#3D8B5E"/>
+                        <Label x:Name="CarbsTargetLabel" FontSize="11"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <ProgressBar x:Name="CarbsBar" ProgressColor="#3D8B5E"
+                                     BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                                     HeightRequest="6"/>
+                        <Label x:Name="CarbsStatusLabel" FontSize="11" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- FAT -->
+                <Border Grid.Column="2"
+                        BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                        StrokeShape="RoundRectangle 16"
+                        Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                        StrokeThickness="1" Padding="14,12">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Fat" FontSize="12"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <Label x:Name="FatActualLabel" FontSize="20" FontAttributes="Bold"
+                               TextColor="#3D8B5E"/>
+                        <Label x:Name="FatTargetLabel" FontSize="11"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <ProgressBar x:Name="FatBar" ProgressColor="#3D8B5E"
+                                     BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"
+                                     HeightRequest="6"/>
+                        <Label x:Name="FatStatusLabel" FontSize="11" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </Grid>
+
+            <!-- MEAL BREAKDOWN -->
+            <Border BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                    StrokeThickness="1" Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Calories by Meal" FontSize="14" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"/>
+
+                    <Grid ColumnDefinitions="80,*,Auto" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Breakfast" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <ProgressBar Grid.Row="0" Grid.Column="1" x:Name="BreakfastBar"
+                                     ProgressColor="#3D8B5E" HeightRequest="8" VerticalOptions="Center"
+                                     BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"/>
+                        <Label Grid.Row="0" Grid.Column="2" x:Name="BreakfastLabel" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}" Margin="8,0,0,0"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" Text="Lunch" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <ProgressBar Grid.Row="1" Grid.Column="1" x:Name="LunchBar"
+                                     ProgressColor="#3D8B5E" HeightRequest="8" VerticalOptions="Center"
+                                     BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"/>
+                        <Label Grid.Row="1" Grid.Column="2" x:Name="LunchLabel" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}" Margin="8,0,0,0"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" Text="Dinner" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <ProgressBar Grid.Row="2" Grid.Column="1" x:Name="DinnerBar"
+                                     ProgressColor="#3D8B5E" HeightRequest="8" VerticalOptions="Center"
+                                     BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"/>
+                        <Label Grid.Row="2" Grid.Column="2" x:Name="DinnerLabel" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}" Margin="8,0,0,0"/>
+
+                        <Label Grid.Row="3" Grid.Column="0" Text="Snack" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+                        <ProgressBar Grid.Row="3" Grid.Column="1" x:Name="SnackBar"
+                                     ProgressColor="#3D8B5E" HeightRequest="8" VerticalOptions="Center"
+                                     BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#222222}"/>
+                        <Label Grid.Row="3" Grid.Column="2" x:Name="SnackLabel" FontSize="13"
+                               TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}" Margin="8,0,0,0"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- FLAGS / ALERTS -->
+            <Border BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                    StrokeThickness="1" Padding="20">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Nutrient Flags" FontSize="14" FontAttributes="Bold"
+                           TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"/>
+                    <StackLayout x:Name="FlagsContainer" Spacing="6"/>
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -43,6 +43,10 @@
 		<EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
 		
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+	  <DebugSymbols>True</DebugSymbols>
+	</PropertyGroup>
 	
 	<ItemGroup>
 		<!-- App Icon -->
@@ -75,7 +79,13 @@
 	  <MauiXaml Update="Views\FoodLogPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\FoodSearchpage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NutritionPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PatientListPage.xaml">

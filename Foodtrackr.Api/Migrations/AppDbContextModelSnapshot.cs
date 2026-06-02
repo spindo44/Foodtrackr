@@ -17,6 +17,231 @@ namespace Foodtrackr.Api.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
 
+            modelBuilder.Entity("Foodtrackr.Api.Models.FoodItem", b =>
+                {
+                    b.Property<string>("FoodId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("AlcoholG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("BetaCaroteneUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("CaffeineM")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("CalciumMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("CarbohydrateG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("CholesterolMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("CopperMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("DietaryFolateEqUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("EnergyKcal")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("EnergyKj")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FatG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FatMonoG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FatPolyG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FatSaturatedG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FatTransG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FibreTotalG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FolateUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("FoodName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double?>("IodideUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("IronMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("MagnesiumMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("ManganeseUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("NiacinMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("Omega3G")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("Omega6G")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("PhosphorusMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("PotassiumMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("ProteinG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("RetinolUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("RiboflavinMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("SeleniumUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("SodiumMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("StarchG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("SugarsG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("ThiaminMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("VitaminAUg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("VitaminB12Ug")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("VitaminB6Mg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("VitaminCMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("VitaminD")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("VitaminEMg")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("WaterG")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("ZincMg")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("FoodId");
+
+                    b.ToTable("FoodItems");
+                });
+
+            modelBuilder.Entity("Foodtrackr.Api.Models.FoodLogEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double?>("CarbsPer100g")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("EnergyKcalPer100g")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("FatPer100g")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("FoodId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FoodItemFoodId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FoodName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsCustom")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("LoggedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MealType")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("PortionWeightGrams")
+                        .HasColumnType("REAL");
+
+                    b.Property<double?>("ProteinPer100g")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FoodItemFoodId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("FoodLogEntries");
+                });
+
+            modelBuilder.Entity("Foodtrackr.Api.Models.FoodPortion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double?>("Density")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("FoodId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MeasureDescription")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("WeightGrams")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FoodId");
+
+                    b.ToTable("FoodPortions");
+                });
+
             modelBuilder.Entity("Foodtrackr.Api.Models.Patient", b =>
                 {
                     b.Property<int>("Id")
@@ -263,6 +488,34 @@ namespace Foodtrackr.Api.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Foodtrackr.Api.Models.FoodLogEntry", b =>
+                {
+                    b.HasOne("Foodtrackr.Api.Models.FoodItem", "FoodItem")
+                        .WithMany()
+                        .HasForeignKey("FoodItemFoodId");
+
+                    b.HasOne("Foodtrackr.Api.Models.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FoodItem");
+
+                    b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("Foodtrackr.Api.Models.FoodPortion", b =>
+                {
+                    b.HasOne("Foodtrackr.Api.Models.FoodItem", "FoodItem")
+                        .WithMany("Portions")
+                        .HasForeignKey("FoodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FoodItem");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -312,6 +565,11 @@ namespace Foodtrackr.Api.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Foodtrackr.Api.Models.FoodItem", b =>
+                {
+                    b.Navigation("Portions");
                 });
 #pragma warning restore 612, 618
         }
