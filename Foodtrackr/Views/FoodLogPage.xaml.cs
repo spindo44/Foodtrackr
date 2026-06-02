@@ -20,6 +20,7 @@ namespace Foodtrackr.Views
             _patientId = patientId;
             _patientName = patientName;
             PatientNameLabel.Text = patientName;
+            LogDatePicker.Date = _selectedDate;
         }
 
         protected override async void OnAppearing()
@@ -116,6 +117,22 @@ namespace Foodtrackr.Views
         {
             var page = new ReportPage(_patientId, _patientName);
             await Navigation.PushAsync(page);
+        }
+        private async void OnPreviousDayClicked(object sender, EventArgs e)
+        {
+            _selectedDate = _selectedDate.AddDays(-1);
+            LogDatePicker.Date = _selectedDate;
+            await LoadEntriesAsync();
+        }
+
+        private async void OnNextDayClicked(object sender, EventArgs e)
+        {
+            if (_selectedDate < DateTime.Today)
+            {
+                _selectedDate = _selectedDate.AddDays(1);
+                LogDatePicker.Date = _selectedDate;
+                await LoadEntriesAsync();
+            }
         }
     }
 }

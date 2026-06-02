@@ -7,7 +7,7 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{AppThemeBinding Light=#F0F4F0, Dark=#000000}">
 
-    <Grid RowDefinitions="Auto,Auto,*,Auto,Auto,Auto">
+    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto,Auto">
 
         <!-- HEADER -->
         <Grid Grid.Row="0"
@@ -22,9 +22,6 @@
                 <Label x:Name="PatientNameLabel" Text="Food Log"
                        TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
                        FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label Text="Today's Intake"
-                       TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
-                       FontSize="13" HorizontalOptions="Center"/>
             </VerticalStackLayout>
             <Button Grid.Column="2" x:Name="ThemeToggleBtn" Text="🌙"
                     Clicked="OnThemeToggleClicked"
@@ -33,64 +30,87 @@
                     Padding="0" VerticalOptions="Center"/>
         </Grid>
 
-        <!-- DAILY SUMMARY CARD -->
-        <!-- DAILY SUMMARY CARD -->
+        <!-- DATE NAVIGATION -->
         <Border Grid.Row="1"
-        BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
-        StrokeShape="RoundRectangle 16"
-        Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
-        StrokeThickness="1" Margin="20,12,20,0" Padding="16,14">
+                BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                StrokeShape="RoundRectangle 12"
+                Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                StrokeThickness="1" Margin="20,10,20,0" Padding="4,4">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Button Grid.Column="0" Text="‹"
+                        Clicked="OnPreviousDayClicked"
+                        BackgroundColor="Transparent" TextColor="#3D8B5E"
+                        FontSize="26" WidthRequest="44" Padding="0"/>
+                <DatePicker Grid.Column="1" x:Name="LogDatePicker"
+                            DateSelected="OnDateChanged"
+                            HorizontalOptions="Center"
+                            TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
+                            BackgroundColor="Transparent"
+                            FontSize="15" FontAttributes="Bold"/>
+                <Button Grid.Column="2" Text="›"
+                        Clicked="OnNextDayClicked"
+                        BackgroundColor="Transparent" TextColor="#3D8B5E"
+                        FontSize="26" WidthRequest="44" Padding="0"/>
+            </Grid>
+        </Border>
+
+        <!-- DAILY SUMMARY CARD -->
+        <Border Grid.Row="2"
+                BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
+                StrokeShape="RoundRectangle 16"
+                Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
+                StrokeThickness="1" Margin="20,10,20,0" Padding="16,14">
             <VerticalStackLayout Spacing="10">
                 <Label Text="TODAY'S SUMMARY"
-               FontSize="11" FontAttributes="Bold" CharacterSpacing="1"
-               TextColor="{AppThemeBinding Light=#9AAA9A, Dark=#666666}"/>
+                       FontSize="11" FontAttributes="Bold" CharacterSpacing="1"
+                       TextColor="{AppThemeBinding Light=#9AAA9A, Dark=#666666}"/>
                 <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="8">
                     <Border Grid.Column="0" StrokeShape="RoundRectangle 10"
-        BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
-        StrokeThickness="0" Padding="8,10">
+                            BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
+                            StrokeThickness="0" Padding="8,10">
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="KCAL" FontSize="10" FontAttributes="Bold"
-               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
-               HorizontalOptions="Center" CharacterSpacing="1"/>
+                                   TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                                   HorizontalOptions="Center" CharacterSpacing="1"/>
                             <Label x:Name="TotalCaloriesLabel" Text="0"
-               FontSize="18" FontAttributes="Bold"
-               TextColor="#3D8B5E" HorizontalOptions="Center"/>
+                                   FontSize="18" FontAttributes="Bold"
+                                   TextColor="#3D8B5E" HorizontalOptions="Center"/>
                         </VerticalStackLayout>
                     </Border>
                     <Border Grid.Column="1" StrokeShape="RoundRectangle 10"
-        BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
-        StrokeThickness="0" Padding="8,10">
+                            BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
+                            StrokeThickness="0" Padding="8,10">
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="PROTEIN" FontSize="10" FontAttributes="Bold"
-               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
-               HorizontalOptions="Center" CharacterSpacing="1"/>
+                                   TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                                   HorizontalOptions="Center" CharacterSpacing="1"/>
                             <Label x:Name="TotalProteinLabel" Text="0g"
-               FontSize="18" FontAttributes="Bold"
-               TextColor="#3D8B5E" HorizontalOptions="Center"/>
+                                   FontSize="18" FontAttributes="Bold"
+                                   TextColor="#3D8B5E" HorizontalOptions="Center"/>
                         </VerticalStackLayout>
                     </Border>
                     <Border Grid.Column="2" StrokeShape="RoundRectangle 10"
-        BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
-        StrokeThickness="0" Padding="8,10">
+                            BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
+                            StrokeThickness="0" Padding="8,10">
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="CARBS" FontSize="10" FontAttributes="Bold"
-               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
-               HorizontalOptions="Center" CharacterSpacing="1"/>
+                                   TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                                   HorizontalOptions="Center" CharacterSpacing="1"/>
                             <Label x:Name="TotalCarbsLabel" Text="0g"
-               FontSize="18" FontAttributes="Bold"
-               TextColor="#3D8B5E" HorizontalOptions="Center"/>
+                                   FontSize="18" FontAttributes="Bold"
+                                   TextColor="#3D8B5E" HorizontalOptions="Center"/>
                         </VerticalStackLayout>
                     </Border>
                     <Border Grid.Column="3" StrokeShape="RoundRectangle 10"
-        BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
-        StrokeThickness="0" Padding="8,10">
+                            BackgroundColor="{AppThemeBinding Light=#F0F8F0, Dark=#1A2A1A}"
+                            StrokeThickness="0" Padding="8,10">
                         <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
                             <Label Text="FAT" FontSize="10" FontAttributes="Bold"
-               TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
-               HorizontalOptions="Center" CharacterSpacing="1"/>
+                                   TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                                   HorizontalOptions="Center" CharacterSpacing="1"/>
                             <Label x:Name="TotalFatLabel" Text="0g"
-               FontSize="18" FontAttributes="Bold"
-               TextColor="#3D8B5E" HorizontalOptions="Center"/>
+                                   FontSize="18" FontAttributes="Bold"
+                                   TextColor="#3D8B5E" HorizontalOptions="Center"/>
                         </VerticalStackLayout>
                     </Border>
                 </Grid>
@@ -98,7 +118,7 @@
         </Border>
 
         <!-- FOOD LOG LIST -->
-        <CollectionView Grid.Row="2" x:Name="FoodLogCollection" Margin="20,12">
+        <CollectionView Grid.Row="3" x:Name="FoodLogCollection" Margin="20,10">
             <CollectionView.EmptyView>
                 <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center"
                                      Spacing="8" Margin="0,40,0,0">
@@ -173,21 +193,27 @@
         </CollectionView>
 
         <!-- LOG FOOD BUTTON -->
-        <Button Grid.Row="3" Text="+ Log Food"
+        <Button Grid.Row="4" Text="+ Log Food"
                 Clicked="OnAddFoodClicked"
                 BackgroundColor="#3D8B5E" TextColor="White" FontAttributes="Bold"
                 CornerRadius="14" HeightRequest="52" Margin="20,4,20,4"/>
 
-        <!-- VIEW NUTRITION BUTTON -->
-        <Button Grid.Row="4" Text="📊 View Nutrition Analysis"
-                Clicked="OnViewNutritionClicked"
-                BackgroundColor="Transparent" TextColor="#3D8B5E"
-                FontSize="14" HeightRequest="40" Margin="20,0,20,24"/>
+        <!-- BOTTOM BUTTONS -->
+        <Grid Grid.Row="5" ColumnDefinitions="*,*" Margin="20,0,20,0" ColumnSpacing="10">
+            <Button Grid.Column="0" Text="📊 Nutrition"
+                    Clicked="OnViewNutritionClicked"
+                    BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#1A2A1A}"
+                    TextColor="#3D8B5E" FontSize="13"
+                    CornerRadius="12" HeightRequest="44"/>
+            <Button Grid.Column="1" Text="📋 Report"
+                    Clicked="OnViewReportClicked"
+                    BackgroundColor="{AppThemeBinding Light=#E8F4E8, Dark=#1A2A1A}"
+                    TextColor="#3D8B5E" FontSize="13"
+                    CornerRadius="12" HeightRequest="44"/>
+        </Grid>
 
-        <Button Grid.Row="5" Text="📋 View Report"
-        Clicked="OnViewReportClicked"
-        BackgroundColor="Transparent" TextColor="#3D8B5E"
-        FontSize="14" HeightRequest="40" Margin="20,0,20,24"/>
+        <!-- BOTTOM SPACER -->
+        <BoxView Grid.Row="6" HeightRequest="20" Color="Transparent"/>
 
     </Grid>
 </ContentPage>

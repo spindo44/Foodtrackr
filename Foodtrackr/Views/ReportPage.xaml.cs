@@ -89,11 +89,11 @@ namespace Foodtrackr.Views
                     ? today.ToString("dddd, dd MMMM yyyy")
                     : $"{rangeStart:dd MMM} – {rangeEnd:dd MMM yyyy}";
 
-                int days = Math.Max(dailyTotals.Count, 1);
-                AvgCaloriesLabel.Text = $"{dailyTotals.Average(d => d.Kcal):0}";
-                AvgProteinLabel.Text = $"{dailyTotals.Average(d => d.Protein):0.#}g";
-                AvgCarbsLabel.Text = $"{dailyTotals.Average(d => d.Carbs):0.#}g";
-                AvgFatLabel.Text = $"{dailyTotals.Average(d => d.Fat):0.#}g";
+                int days = Math.Max(_rangeDays, 1);
+                AvgCaloriesLabel.Text = $"{dailyTotals.Sum(d => d.Kcal) / days:0}";
+                AvgProteinLabel.Text = $"{dailyTotals.Sum(d => d.Protein) / days:0.#}g";
+                AvgCarbsLabel.Text = $"{dailyTotals.Sum(d => d.Carbs) / days:0.#}g";
+                AvgFatLabel.Text = $"{dailyTotals.Sum(d => d.Fat) / days:0.#}g";
 
                 // Daily breakdown
                 DailyBreakdownContainer.Children.Clear();
@@ -163,10 +163,10 @@ namespace Foodtrackr.Views
                 RdiContainer.Children.Clear();
                 if (dailyTotals.Any())
                 {
-                    double avgKcal = dailyTotals.Average(d => d.Kcal);
-                    double avgProtein = dailyTotals.Average(d => d.Protein);
-                    double avgCarbs = dailyTotals.Average(d => d.Carbs);
-                    double avgFat = dailyTotals.Average(d => d.Fat);
+                    double avgKcal = dailyTotals.Sum(d => d.Kcal) / days;
+                    double avgProtein = dailyTotals.Sum(d => d.Protein) / days;
+                    double avgCarbs = dailyTotals.Sum(d => d.Carbs) / days;
+                    double avgFat = dailyTotals.Sum(d => d.Fat) / days;
 
                     AddRdiRow("Calories", avgKcal, RdiCalories, "kcal");
                     AddRdiRow("Protein", avgProtein, RdiProtein, "g");
