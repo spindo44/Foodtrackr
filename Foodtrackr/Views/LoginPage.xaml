@@ -6,73 +6,79 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{AppThemeBinding Light=#F0F4F0, Dark=#000000}">
 
-    <ScrollView>
-        <VerticalStackLayout Spacing="16" Padding="32" VerticalOptions="Center">
+    <Grid RowDefinitions="*,Auto">
 
-            <!-- THEME TOGGLE TOP RIGHT -->
-            <Grid>
-                <Button x:Name="ThemeToggleBtn"
-                        Text="🌙"
-                        Clicked="OnThemeToggleClicked"
-                        BackgroundColor="#3D8B5E"
-                        TextColor="White"
-                        CornerRadius="20"
-                        HeightRequest="40"
-                        WidthRequest="40"
-                        Padding="0"
-                        HorizontalOptions="End"/>
-            </Grid>
+        <!-- THEME TOGGLE -->
+        <Button x:Name="ThemeToggleBtn"
+                Text="🌙"
+                Clicked="OnThemeToggleClicked"
+                BackgroundColor="#3D8B5E"
+                TextColor="White"
+                CornerRadius="20"
+                HeightRequest="40" WidthRequest="40"
+                Padding="0"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="0,50,24,0"/>
+
+        <!-- MAIN CONTENT -->
+        <VerticalStackLayout Grid.Row="0"
+                             VerticalOptions="Center"
+                             Padding="32,0"
+                             Spacing="0">
 
             <!-- LOGO -->
-            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
-                <Label Text="Food"
-                       TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
-                       FontSize="52"
-                       FontAttributes="Bold"/>
-                <Label Text="trackr"
-                       TextColor="#3D8B5E"
-                       FontSize="52"
-                       FontAttributes="Bold"/>
-            </HorizontalStackLayout>
-
-            <Label Text="Track nutrition. Improve lives."
-                   FontSize="15"
-                   TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
-                   HorizontalOptions="Center"
-                   Margin="0,0,0,24"/>
+            <VerticalStackLayout Spacing="8" Margin="0,0,0,40">
+                <Label FontSize="40" FontAttributes="Bold"
+                       HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Food" TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"/>
+                            <Span Text="trackr" TextColor="#3D8B5E"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="Track nutrition. Improve lives."
+                       FontSize="15"
+                       TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
+            </VerticalStackLayout>
 
             <!-- EMAIL -->
-            <Border StrokeThickness="1.5"
-                    StrokeShape="RoundRectangle 14"
-                    BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
-                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
-                    Padding="16,4">
+            <Border StrokeShape="RoundRectangle 12"
+                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#333333}"
+                    StrokeThickness="1"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#111111}"
+                    Margin="0,0,0,12">
                 <Entry x:Name="EmailEntry"
                        Placeholder="Email"
-                       PlaceholderColor="{AppThemeBinding Light=#9AAA9A, Dark=#555555}"
-                       TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
                        Keyboard="Email"
-                       BackgroundColor="Transparent"/>
+                       BackgroundColor="Transparent"
+                       TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
+                       PlaceholderColor="{AppThemeBinding Light=#9AAA9A, Dark=#555555}"
+                       Margin="16,0"/>
             </Border>
 
             <!-- PASSWORD -->
-            <Border StrokeThickness="1.5"
-                    StrokeShape="RoundRectangle 14"
-                    BackgroundColor="{AppThemeBinding Light=#FAFCFA, Dark=#111111}"
-                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
-                    Padding="16,4">
+            <Border StrokeShape="RoundRectangle 12"
+                    Stroke="{AppThemeBinding Light=#D8E8D8, Dark=#333333}"
+                    StrokeThickness="1"
+                    BackgroundColor="{AppThemeBinding Light=White, Dark=#111111}"
+                    Margin="0,0,0,24">
                 <Entry x:Name="PasswordEntry"
                        Placeholder="Password"
-                       PlaceholderColor="{AppThemeBinding Light=#9AAA9A, Dark=#555555}"
-                       TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
                        IsPassword="True"
-                       BackgroundColor="Transparent"/>
+                       BackgroundColor="Transparent"
+                       TextColor="{AppThemeBinding Light=#1A2E1A, Dark=#FFFFFF}"
+                       PlaceholderColor="{AppThemeBinding Light=#9AAA9A, Dark=#555555}"
+                       Margin="16,0"/>
             </Border>
 
+            <!-- ERROR -->
             <Label x:Name="ErrorLabel"
-                   TextColor="#E53935"
-                   HorizontalOptions="Center"
-                   IsVisible="False"/>
+                   IsVisible="False"
+                   TextColor="#D9534F"
+                   FontSize="13"
+                   Margin="0,0,0,12"/>
 
             <!-- LOGIN BUTTON -->
             <Button Text="Log In"
@@ -80,52 +86,27 @@
                     BackgroundColor="#3D8B5E"
                     TextColor="White"
                     FontAttributes="Bold"
+                    FontSize="16"
                     CornerRadius="14"
                     HeightRequest="52"
-                    Margin="0,8,0,0"/>
+                    Margin="0,0,0,24"/>
 
-            <!-- DEV BYPASS -->
-            <Button Text="DEV: Skip Login"
-                    Clicked="OnDevBypassClicked"
-                    BackgroundColor="Transparent"
-                    TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
-                    BorderColor="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
-                    BorderWidth="1.5"
-                    CornerRadius="14"
-                    HeightRequest="52"/>
-
-            <Grid ColumnDefinitions="*,Auto,*"
-                  ColumnSpacing="10"
-                  Margin="0,8,0,8">
-                <BoxView Grid.Column="0"
-                         HeightRequest="1"
-                         Color="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
-                         VerticalOptions="Center"/>
-                <Label Grid.Column="1"
-                       Text="or"
-                       TextColor="{AppThemeBinding Light=#9AAA9A, Dark=#555555}"
-                       VerticalOptions="Center"/>
-                <BoxView Grid.Column="2"
-                         HeightRequest="1"
-                         Color="{AppThemeBinding Light=#D8E8D8, Dark=#222222}"
-                         VerticalOptions="Center"/>
-            </Grid>
-
-            <Label HorizontalOptions="Center">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnRegisterTapped"/>
-                </Label.GestureRecognizers>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Don't have an account? "
-                              TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"/>
-                        <Span Text="Register"
-                              TextColor="#3D8B5E"
-                              FontAttributes="Bold"/>
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
+            <!-- REGISTER LINK -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                <Label Text="Don't have an account?"
+                       TextColor="{AppThemeBinding Light=#6B7C6B, Dark=#AAAAAA}"
+                       FontSize="14" VerticalOptions="Center"/>
+                <Label Text="Register"
+                       TextColor="#3D8B5E"
+                       FontSize="14"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRegisterTapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
 
         </VerticalStackLayout>
-    </ScrollView>
+    </Grid>
 </ContentPage>

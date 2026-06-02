@@ -42,7 +42,7 @@ namespace Foodtrackr.Views
             }
             catch
             {
-                // silently fail on search
+               
             }
         }
 

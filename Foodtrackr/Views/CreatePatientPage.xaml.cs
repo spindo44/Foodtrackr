@@ -77,6 +77,14 @@ namespace Foodtrackr.Views
                 ErrorLabel.Text = $"Error: {ex.Message}";
                 ErrorLabel.IsVisible = true;
             }
+
         }
+
+        private async void OnBackClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//PatientListPage");
+        }
+
     }
 }
+

@@ -30,7 +30,7 @@ namespace Foodtrackr.Views
 
         private async Task LoadEntriesAsync()
         {
-            await DisplayAlert("Debug", $"Loading for patientId: {_patientId}, date: {_selectedDate:yyyy-MM-dd}", "OK");
+            
             try
             {
                 var entries = await _api.GetLogEntriesAsync(_patientId, _selectedDate);
@@ -50,10 +50,10 @@ namespace Foodtrackr.Views
             double totalCarbs = entries.Sum(e => e.Carbs);
             double totalFat = entries.Sum(e => e.Fat);
 
-            TotalCaloriesLabel.Text = $"{totalCalories:0} kcal";
-            TotalProteinLabel.Text = $"{totalProtein:0.0}g protein";
-            TotalCarbsLabel.Text = $"{totalCarbs:0.0}g carbs";
-            TotalFatLabel.Text = $"{totalFat:0.0}g fat";
+            TotalCaloriesLabel.Text = $"{totalCalories:0}";
+            TotalProteinLabel.Text = $"{totalProtein:0.#}g";
+            TotalCarbsLabel.Text = $"{totalCarbs:0.#}g";
+            TotalFatLabel.Text = $"{totalFat:0.#}g";
         }
 
         private async void OnAddFoodClicked(object sender, EventArgs e)
@@ -95,6 +95,27 @@ namespace Foodtrackr.Views
             bool isDark = !Foodtrackr.Helpers.ThemeHelper.IsDarkMode();
             Foodtrackr.Helpers.ThemeHelper.SetTheme(isDark);
             ThemeToggleBtn.Text = isDark ? "☀️" : "🌙";
+        }
+
+        private async void OnEntryTapped(object sender, TappedEventArgs e)
+        {
+            if (e.Parameter is not FoodLogEntry entry) return;
+
+            await DisplayAlert(entry.FoodName,
+                $"Portion: {entry.PortionGrams:0}g\n" +
+                $"Meal: {entry.MealType}\n" +
+                $"Time: {entry.LoggedAt:h:mm tt}\n\n" +
+                $"Calories: {entry.Calories:0} kcal\n" +
+                $"Protein: {entry.Protein:0.#}g\n" +
+                $"Carbs: {entry.Carbs:0.#}g\n" +
+                $"Fat: {entry.Fat:0.#}g",
+                "OK");
+        }
+
+        private async void OnViewReportClicked(object sender, EventArgs e)
+        {
+            var page = new ReportPage(_patientId, _patientName);
+            await Navigation.PushAsync(page);
         }
     }
 }
