@@ -95,7 +95,12 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     context.Database.Migrate();
-    await FoodDataSeeder.SeedAsync(context);
+
+    
+    if (app.Environment.IsDevelopment())
+    {
+        await FoodDataSeeder.SeedAsync(context);
+    }
 }
 
 app.UseSwagger();
