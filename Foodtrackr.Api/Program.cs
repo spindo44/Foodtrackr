@@ -9,7 +9,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
 
 if (!string.IsNullOrEmpty(connectionString))
@@ -97,7 +96,23 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     context.Database.Migrate();
 
-    
+   
+    var conn = context.Database.GetDbConnection();
+    await conn.OpenAsync();
+    using var cmd = conn.CreateCommand();
+    cmd.CommandText = @"
+        DO $$ BEGIN
+            ALTER TABLE ""AspNetUsers""
+                ALTER COLUMN ""EmailConfirmed"" TYPE boolean USING ""EmailConfirmed""::boolean,
+                ALTER COLUMN ""PhoneNumberConfirmed"" TYPE boolean USING ""PhoneNumberConfirmed""::boolean,
+                ALTER COLUMN ""TwoFactorEnabled"" TYPE boolean USING ""TwoFactorEnabled""::boolean,
+                ALTER COLUMN ""LockoutEnabled"" TYPE boolean USING ""LockoutEnabled""::boolean;
+        EXCEPTION WHEN others THEN
+            NULL;
+        END $$;
+    ";
+    try { await cmd.ExecuteNonQueryAsync(); } catch { /* already correct type */ }
+
     if (app.Environment.IsDevelopment())
     {
         await FoodDataSeeder.SeedAsync(context);
@@ -106,7 +121,6 @@ using (var scope = app.Services.CreateScope())
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication();
