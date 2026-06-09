@@ -11,14 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Foodtrackr.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260602171931_Sprint2_NutrientFix")]
-    partial class Sprint2_NutrientFix
+    [Migration("20260609225415_InitialPostgres")]
+    partial class InitialPostgres
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
+            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
             modelBuilder.Entity("Foodtrackr.Api.Models.FoodItem", b =>
                 {
