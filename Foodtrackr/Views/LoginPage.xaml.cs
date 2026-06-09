@@ -1,5 +1,6 @@
 ﻿using Foodtrackr.Helpers;
 
+
 namespace Foodtrackr.Views
 {
     public partial class LoginPage : ContentPage
@@ -47,7 +48,7 @@ namespace Foodtrackr.Views
                 {
                     ServerCertificateCustomValidationCallback = (m, c, ch, e) => true
                 };
-                var http = new HttpClient(handler) { BaseAddress = new Uri("https://10.0.2.2:7191") };
+                var http = new HttpClient(handler) { BaseAddress = new Uri("https://foodtrackr.onrender.com") };
                 var response = await http.PostAsync("/api/auth/login", content);
 
                 if (response.IsSuccessStatusCode)

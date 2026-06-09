@@ -6,7 +6,7 @@ namespace Foodtrackr.Services
 {
     public class ApiService
     {
-        private const string BaseUrl = "https://10.0.2.2:7191";
+        private const string BaseUrl = "https://foodtrackr.onrender.com";
         private static string? _token;
         private static readonly HttpClient _http;
 
@@ -16,7 +16,7 @@ namespace Foodtrackr.Services
             {
                 ServerCertificateCustomValidationCallback = (m, c, ch, e) => true
             };
-            _http = new HttpClient(handler) { BaseAddress = new Uri(BaseUrl) };
+            _http = new HttpClient(handler) { BaseAddress = new Uri("https://foodtrackr.onrender.com") };
         }
 
         public static void SetToken(string token)

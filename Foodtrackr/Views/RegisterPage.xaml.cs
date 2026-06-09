@@ -9,7 +9,7 @@ namespace Foodtrackr.Views
             InitializeComponent();
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:5000")
+                BaseAddress = new Uri("https://foodtrackr.onrender.com")
             };
         }
 
@@ -45,9 +45,9 @@ namespace Foodtrackr.Views
                     ErrorLabel.IsVisible = true;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                ErrorLabel.Text = "Could not connect to server.";
+                ErrorLabel.Text = $"Could not connect: {ex.Message}";
                 ErrorLabel.IsVisible = true;
             }
         }
