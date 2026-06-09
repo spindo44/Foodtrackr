@@ -32,8 +32,13 @@ namespace Foodtrackr.Services
         public async Task<List<Patient>> GetPatientsAsync()
         {
             AttachToken();
-            var auth = _http.DefaultRequestHeaders.Authorization;
-            throw new Exception($"Token in field: {_token?.Substring(0, 20) ?? "NULL"} | Header: {auth?.Parameter?.Substring(0, 20) ?? "NULL"}");
+            var response = await _http.GetAsync("/api/patient");
+            if (!response.IsSuccessStatusCode)
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Status: {response.StatusCode} — {error}");
+            }
+            return await response.Content.ReadFromJsonAsync<List<Patient>>() ?? new();
         }
 
         public async Task<Patient?> CreatePatientAsync(Patient patient)

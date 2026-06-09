@@ -57,7 +57,7 @@ namespace Foodtrackr.Views
                     var doc = System.Text.Json.JsonDocument.Parse(body);
                     var token = doc.RootElement.GetProperty("token").GetString()!;
                     Foodtrackr.Services.ApiService.SetToken(token);
-                    await DisplayAlert("Debug", $"Token: {token.Substring(0, 20)}...", "OK");
+                    
                     await Shell.Current.GoToAsync("//PatientListPage");
                 }
                 else
