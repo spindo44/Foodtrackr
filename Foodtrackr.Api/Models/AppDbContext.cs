@@ -30,5 +30,12 @@ namespace Foodtrackr.Api.Models
                 .WithMany()
                 .HasForeignKey(l => l.PatientId);
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql("Host=dpg-d8k8msho3t8c73aq7e3g-a.singapore-postgres.render.com;Port=5432;Database=foodtrackr_db;Username=foodtrackr_db_user;Password=uI0YwO4Lw8XhvBiNraUp3gEqIUhB18sf;SSL Mode=Require;Trust Server Certificate=true");
+            }
+        }
     }
 }
