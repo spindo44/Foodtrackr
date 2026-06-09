@@ -14,7 +14,6 @@ var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
 
 if (!string.IsNullOrEmpty(connectionString))
 {
-    
     if (connectionString.StartsWith("postgres://") || connectionString.StartsWith("postgresql://"))
     {
         var uri = new Uri(connectionString);
@@ -22,12 +21,14 @@ if (!string.IsNullOrEmpty(connectionString))
         connectionString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
     }
     builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(connectionString));
+        options.UseNpgsql(connectionString)
+               .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 }
 else
 {
     builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseSqlite("Data Source=foodtrackr.db"));
+        options.UseSqlite("Data Source=foodtrackr.db")
+               .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 }
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
