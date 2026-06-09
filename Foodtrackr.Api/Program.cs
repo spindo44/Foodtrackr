@@ -10,10 +10,25 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql("Host=dpg-d8k9fl67r5hc73dm9ehg-a.singapore-postgres.render.com;Port=5432;Database=foodtrackr_db_zbpd;Username=foodtrackr_db_zbpd_user;Password=yktQxPzlYDHyAT0kEi6NQr5fMpoMPzBZ;SSL Mode=Require;Trust Server Certificate=true")
-           .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 
+if (!string.IsNullOrEmpty(connectionString))
+{
+    if (connectionString.StartsWith("postgres://") || connectionString.StartsWith("postgresql://"))
+    {
+        var uri = new Uri(connectionString);
+        var userInfo = uri.UserInfo.Split(':');
+        connectionString = $"Host={uri.Host};Port={uri.Port};Database={uri.AbsolutePath.TrimStart('/')};Username={userInfo[0]};Password={userInfo[1]};SSL Mode=Require;Trust Server Certificate=true";
+    }
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseNpgsql(connectionString)
+               .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
+}
+else
+{
+    builder.Services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlite("Data Source=foodtrackr.db")
+               .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
+}
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
@@ -80,36 +95,34 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     context.Database.Migrate();
 
-   
+    
     var conn = context.Database.GetDbConnection();
     await conn.OpenAsync();
     using var cmd = conn.CreateCommand();
     cmd.CommandText = @"
-    DO $$ BEGIN
-        ALTER TABLE ""AspNetUsers""
-            ALTER COLUMN ""EmailConfirmed"" TYPE boolean USING ""EmailConfirmed""::boolean,
-            ALTER COLUMN ""PhoneNumberConfirmed"" TYPE boolean USING ""PhoneNumberConfirmed""::boolean,
-            ALTER COLUMN ""TwoFactorEnabled"" TYPE boolean USING ""TwoFactorEnabled""::boolean,
-            ALTER COLUMN ""LockoutEnabled"" TYPE boolean USING ""LockoutEnabled""::boolean;
-    EXCEPTION WHEN others THEN
-        NULL;
-    END $$;
-    DO $$ BEGIN
-        ALTER TABLE ""Patients""
-            ALTER COLUMN ""IsMetric"" TYPE boolean USING ""IsMetric""::boolean;
-    EXCEPTION WHEN others THEN
-        NULL;
-    END $$;
-    DO $$ BEGIN
-        ALTER TABLE ""FoodLogEntries""
-            ALTER COLUMN ""IsCustom"" TYPE boolean USING ""IsCustom""::boolean;
-    EXCEPTION WHEN others THEN
-        NULL;
-    END $$;
-";
-    try { await cmd.ExecuteNonQueryAsync(); } catch { /* already correct type */ }
+        DO $$ BEGIN
+            ALTER TABLE ""AspNetUsers""
+                ALTER COLUMN ""EmailConfirmed"" TYPE boolean USING ""EmailConfirmed""::boolean,
+                ALTER COLUMN ""PhoneNumberConfirmed"" TYPE boolean USING ""PhoneNumberConfirmed""::boolean,
+                ALTER COLUMN ""TwoFactorEnabled"" TYPE boolean USING ""TwoFactorEnabled""::boolean,
+                ALTER COLUMN ""LockoutEnabled"" TYPE boolean USING ""LockoutEnabled""::boolean;
+        EXCEPTION WHEN others THEN NULL;
+        END $$;
+        DO $$ BEGIN
+            ALTER TABLE ""Patients""
+                ALTER COLUMN ""IsMetric"" TYPE boolean USING ""IsMetric""::boolean;
+        EXCEPTION WHEN others THEN NULL;
+        END $$;
+        DO $$ BEGIN
+            ALTER TABLE ""FoodLogEntries""
+                ALTER COLUMN ""IsCustom"" TYPE boolean USING ""IsCustom""::boolean;
+        EXCEPTION WHEN others THEN NULL;
+        END $$;
+    ";
+    try { await cmd.ExecuteNonQueryAsync(); } catch { }
 
-    if (app.Environment.IsDevelopment())
+   
+    if (!context.FoodItems.Any())
     {
         await FoodDataSeeder.SeedAsync(context);
     }

@@ -1,6 +1,6 @@
 ﻿using Foodtrackr.Api.Models;
 using Microsoft.EntityFrameworkCore;
-using OfficeOpenXml; 
+using OfficeOpenXml;
 
 namespace Foodtrackr.Api
 {
@@ -9,14 +9,10 @@ namespace Foodtrackr.Api
         public static async Task SeedAsync(AppDbContext context)
         {
             if (await context.FoodItems.AnyAsync())
-                return; // Already seeded
+                return;
 
             Console.WriteLine("Seeding FOODfiles data...");
 
-            var foodItems = new List<FoodItem>();
-            var portions = new List<FoodPortion>();
-
-            // --- Seed FoodItems from Standard DATA.AP.xlsx ---
             var dataPath = Path.Combine(AppContext.BaseDirectory, "SeedData", "Standard_DATA_AP.xlsx");
             if (!File.Exists(dataPath))
             {
@@ -26,11 +22,12 @@ namespace Foodtrackr.Api
 
             ExcelPackage.License.SetNonCommercialPersonal("Foodtrackr");
 
+            
             using (var package = new ExcelPackage(new FileInfo(dataPath)))
             {
                 var ws = package.Workbook.Worksheets[0];
-                // Row 1 = copyright, Row 2 = headers, Row 3 = units, Row 4+ = data
                 int totalRows = ws.Dimension.Rows;
+                var batch = new List<FoodItem>();
 
                 for (int row = 4; row <= totalRows; row++)
                 {
@@ -43,7 +40,7 @@ namespace Foodtrackr.Api
                         return double.TryParse(text, out var v) ? v : null;
                     }
 
-                    foodItems.Add(new FoodItem
+                    batch.Add(new FoodItem
                     {
                         FoodId = foodId,
                         FoodName = ws.Cells[row, 2].Text?.Trim() ?? string.Empty,
@@ -90,19 +87,36 @@ namespace Foodtrackr.Api
                         BetaCaroteneUg = GetVal(11),
                         CaffeineM = GetVal(14),
                     });
+
+                    if (batch.Count >= 100)
+                    {
+                        await context.FoodItems.AddRangeAsync(batch);
+                        await context.SaveChangesAsync();
+                        context.ChangeTracker.Clear();
+                        batch.Clear();
+                        Console.WriteLine($"Seeded batch...");
+                    }
+                }
+
+                if (batch.Any())
+                {
+                    await context.FoodItems.AddRangeAsync(batch);
+                    await context.SaveChangesAsync();
+                    context.ChangeTracker.Clear();
                 }
             }
 
-            // --- Seed Portions from CSM_FT.xlsx ---
+           
             var csmPath = Path.Combine(AppContext.BaseDirectory, "SeedData", "CSM_FT.xlsx");
             if (File.Exists(csmPath))
             {
+                var foodIds = await context.FoodItems.Select(f => f.FoodId).ToHashSetAsync();
                 using var package = new ExcelPackage(new FileInfo(csmPath));
                 var ws = package.Workbook.Worksheets[0];
                 int totalRows = ws.Dimension.Rows;
-                var foodIds = foodItems.Select(f => f.FoodId).ToHashSet();
+                var batch = new List<FoodPortion>();
 
-                for (int row = 3; row <= totalRows; row++) // Row 1 = copyright, Row 2 = headers
+                for (int row = 3; row <= totalRows; row++)
                 {
                     var foodId = ws.Cells[row, 1].Text?.Trim();
                     if (string.IsNullOrEmpty(foodId) || !foodIds.Contains(foodId)) continue;
@@ -112,24 +126,34 @@ namespace Foodtrackr.Api
 
                     double? density = double.TryParse(ws.Cells[row, 5].Text?.Trim(), out var d) ? d : null;
 
-                    portions.Add(new FoodPortion
+                    batch.Add(new FoodPortion
                     {
                         FoodId = foodId,
                         MeasureDescription = ws.Cells[row, 3].Text?.Trim() ?? string.Empty,
                         WeightGrams = weight,
                         Density = density
                     });
+
+                    if (batch.Count >= 200)
+                    {
+                        await context.FoodPortions.AddRangeAsync(batch);
+                        await context.SaveChangesAsync();
+                        context.ChangeTracker.Clear();
+                        batch.Clear();
+                    }
+                }
+
+                if (batch.Any())
+                {
+                    await context.FoodPortions.AddRangeAsync(batch);
+                    await context.SaveChangesAsync();
+                    context.ChangeTracker.Clear();
                 }
             }
 
-            // Bulk insert
-            await context.FoodItems.AddRangeAsync(foodItems);
-            await context.SaveChangesAsync();
-
-            await context.FoodPortions.AddRangeAsync(portions);
-            await context.SaveChangesAsync();
-
-            Console.WriteLine($"Seeded {foodItems.Count} food items and {portions.Count} portions.");
+            var foodCount = await context.FoodItems.CountAsync();
+            var portionCount = await context.FoodPortions.CountAsync();
+            Console.WriteLine($"Seeded {foodCount} food items and {portionCount} portions.");
         }
     }
 }
