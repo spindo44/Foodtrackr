@@ -106,8 +106,8 @@ namespace Foodtrackr.Api
                 }
             }
 
-           
-            var csmPath = Path.Combine(AppContext.BaseDirectory, "SeedData", "CSM_FT.xlsx");
+
+            var csmPath = Path.Combine(AppContext.BaseDirectory, "SeedData", "Standard_DATA_FT.xlsx");
             if (File.Exists(csmPath))
             {
                 var foodIds = await context.FoodItems.Select(f => f.FoodId).ToHashSetAsync();
