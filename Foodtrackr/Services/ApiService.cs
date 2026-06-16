@@ -75,7 +75,9 @@ namespace Foodtrackr.Services
                 CarbsPer100g = carbsPer100g,
                 FatPer100g = fatPer100g
             };
+            System.Diagnostics.Debug.WriteLine($"[ApiService] POST {BaseUrl}/api/FoodLog token={(_token != null)}");
             var response = await _http.PostAsJsonAsync("/api/FoodLog", payload);
+            System.Diagnostics.Debug.WriteLine($"[ApiService] /api/FoodLog -> {(int)response.StatusCode} {response.StatusCode}");
             if (!response.IsSuccessStatusCode)
             {
                 var err = await response.Content.ReadAsStringAsync();
@@ -85,7 +87,7 @@ namespace Foodtrackr.Services
             var raw = await response.Content.ReadFromJsonAsync<JsonElement>();
             return new FoodLogEntry
             {
-                Id = raw.GetProperty("id").GetInt32(),
+                Id = raw.TryGetProperty("id", out var idProp) ? idProp.GetInt32() : 0,
                 PatientId = patientId,
                 FoodId = foodId,
                 FoodName = foodName,
@@ -145,10 +147,15 @@ namespace Foodtrackr.Services
         public async Task<List<FoodLogEntry>> GetLogEntriesAsync(int patientId, DateTime date)
         {
             AttachToken();
-            var dateStr = date.ToString("yyyy-MM-dd");
-            var response = await _http.GetAsync($"/api/FoodLog/patient/{patientId}?date={Uri.EscapeDataString(dateStr)}");
+
+            var response = await _http.GetAsync($"/api/FoodLog/patient/{patientId}");
             if (!response.IsSuccessStatusCode) return new();
-            return await response.Content.ReadFromJsonAsync<List<FoodLogEntry>>() ?? new();
+
+            var all = await response.Content.ReadFromJsonAsync<List<FoodLogEntry>>() ?? new();
+            var localDay = date.Date;
+            return all
+                .Where(e => e.LoggedAt.ToLocalTime().Date == localDay)
+                .ToList();
         }
 
         public async Task DeleteLogEntryAsync(int entryId)

@@ -62,44 +62,65 @@ namespace Foodtrackr.Views
 
         private async void OnAddFoodClicked(object sender, EventArgs e)
         {
-            var btn = (Button)sender;
-            if (btn.CommandParameter is not FoodSearchResult food) return;
-
-            double portionGrams;
-
-            if (food.Portions != null && food.Portions.Count > 0)
+            try
             {
-                var options = food.Portions.Select(p => $"{p.MeasureDescription} ({p.WeightGrams}g)").ToArray();
-                var customOption = "Enter custom amount (g)";
-                var allOptions = options.Append(customOption).ToArray();
-
-                var pick = await DisplayActionSheet("Select portion size", "Cancel", null, allOptions);
-                if (pick == null || pick == "Cancel") return;
-
-                if (pick == customOption)
+                var btn = (Button)sender;
+                if (btn.CommandParameter is not FoodSearchResult food)
                 {
-                    portionGrams = await PromptGrams();
-                    if (portionGrams <= 0) return;
+                    await DisplayAlert("Error", "Could not read the selected food item.", "OK");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(food.FoodId))
+                {
+                    await DisplayAlert("Error", $"This food is missing a FoodId, so it can't be logged.\n({food.FoodName})", "OK");
+                    return;
+                }
+
+                double portionGrams;
+
+                if (food.Portions != null && food.Portions.Count > 0)
+                {
+                    var options = food.Portions.Select(p => $"{p.MeasureDescription} ({p.WeightGrams}g)").ToArray();
+                    var customOption = "Enter custom amount (g)";
+                    var allOptions = options.Append(customOption).ToArray();
+
+                    var pick = await DisplayActionSheet("Select portion size", "Cancel", null, allOptions);
+                    if (pick == null || pick == "Cancel") return;
+
+                    if (pick == customOption)
+                    {
+                        portionGrams = await PromptGrams();
+                        if (portionGrams <= 0) return;
+                    }
+                    else
+                    {
+                        var selected = food.Portions.FirstOrDefault(p =>
+                            pick.StartsWith(p.MeasureDescription));
+                        if (selected == null)
+                        {
+                            await DisplayAlert("Error", "Could not match the chosen portion size.", "OK");
+                            return;
+                        }
+                        portionGrams = selected.WeightGrams;
+                    }
                 }
                 else
                 {
-                    var selected = food.Portions.First(p =>
-                        pick.StartsWith(p.MeasureDescription));
-                    portionGrams = selected.WeightGrams;
+                    portionGrams = await PromptGrams();
+                    if (portionGrams <= 0)
+                    {
+                        return;
+                    }
                 }
-            }
-            else
-            {
-                portionGrams = await PromptGrams();
-                if (portionGrams <= 0) return;
-            }
 
-            try
-            {
+                System.Diagnostics.Debug.WriteLine(
+                    $"[FoodLog] POST patient={_patientId} foodId={food.FoodId} grams={portionGrams} meal={_selectedMealType}");
+
                 var entry = await _api.LogFoodAsync(
-    _patientId, food.FoodId, food.FoodName,
-    portionGrams, _selectedMealType,
-    food.EnergyKcal, food.ProteinG, food.CarbohydrateG, food.FatG);
+                    _patientId, food.FoodId, food.FoodName,
+                    portionGrams, _selectedMealType,
+                    food.EnergyKcal, food.ProteinG, food.CarbohydrateG, food.FatG);
 
                 if (entry != null)
                 {
@@ -113,7 +134,8 @@ namespace Foodtrackr.Views
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", ex.Message, "OK");
+                System.Diagnostics.Debug.WriteLine($"[FoodLog] FAILED: {ex}");
+                await DisplayAlert("Error", $"Logging failed:\n{ex.Message}", "OK");
             }
         }
 
