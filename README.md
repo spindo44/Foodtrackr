@@ -48,5 +48,4 @@ PostgreSQL database.
 ## Developer
 Taylor Kloss — Scrum Master / Full Stack Dev
 
-## Course
-D301 Software Engineering — UCOL 2026
+
