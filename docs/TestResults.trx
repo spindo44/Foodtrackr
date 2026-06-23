@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="0277d427-6799-4b28-8df1-813954e1cbcd" name="taylo@GODPC 2026-06-24 09:37:35" runUser="GODPC\taylo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-06-24T09:37:35.1112728+12:00" queuing="2026-06-24T09:37:35.1112729+12:00" start="2026-06-24T09:37:34.0864963+12:00" finish="2026-06-24T09:37:36.1206350+12:00" />
+  <TestSettings name="default" id="300baae2-1760-45c5-ac36-77482ff6c1e6">
+    <Deployment runDeploymentRoot="taylo_GODPC_2026-06-24_09_37_35" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="d43b693d-7dde-4d01-9f16-8da9e4f1593a" testId="a195e513-e087-42bc-2257-cdd84a2c679b" testName="Foodtrackr.Tests.PatientControllerTests.Delete_RemovesPatient_ReturnsNoContent" computerName="GODPC" duration="00:00:00.0088129" startTime="2026-06-24T09:37:35.6714919+12:00" endTime="2026-06-24T09:37:35.6714920+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d43b693d-7dde-4d01-9f16-8da9e4f1593a" />
+    <UnitTestResult executionId="5b09658e-c071-4322-acc9-f747ee0aefee" testId="41381719-40ef-285b-73a0-5936b6ac4976" testName="Foodtrackr.Tests.ApiIntegrationTests.Login_WrongPassword_ReturnsUnauthorized" computerName="GODPC" duration="00:00:00.0850020" startTime="2026-06-24T09:37:35.9015784+12:00" endTime="2026-06-24T09:37:35.9015785+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5b09658e-c071-4322-acc9-f747ee0aefee" />
+    <UnitTestResult executionId="29dc53b9-8e40-4ae9-a5d0-5abd9e12f097" testId="25896b50-36c1-951c-8874-46ff037946f1" testName="Foodtrackr.Tests.ApiIntegrationTests.CreatePatient_ThenList_ReturnsCreatedPatient" computerName="GODPC" duration="00:00:00.0937991" startTime="2026-06-24T09:37:35.9957381+12:00" endTime="2026-06-24T09:37:35.9957382+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="29dc53b9-8e40-4ae9-a5d0-5abd9e12f097" />
+    <UnitTestResult executionId="da86f6f7-dc01-4cee-8573-f5818e3e6662" testId="1f7a0732-738a-d3e6-1e50-bd9de05022d1" testName="Foodtrackr.Tests.AuthControllerTests.Login_WrongPassword_ReturnsUnauthorized" computerName="GODPC" duration="00:00:00.1003628" startTime="2026-06-24T09:37:35.7446387+12:00" endTime="2026-06-24T09:37:35.7446389+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="da86f6f7-dc01-4cee-8573-f5818e3e6662" />
+    <UnitTestResult executionId="3414616a-3ad4-40b4-b98a-ffc9ce2ee891" testId="7d043f1e-e4d6-68e9-e929-488175258800" testName="Foodtrackr.Tests.ApiIntegrationTests.GetPatients_WithoutToken_ReturnsUnauthorized" computerName="GODPC" duration="00:00:00.5454683" startTime="2026-06-24T09:37:35.5362631+12:00" endTime="2026-06-24T09:37:35.5362634+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3414616a-3ad4-40b4-b98a-ffc9ce2ee891" />
+    <UnitTestResult executionId="6054b7da-3e4c-4a8e-b242-76341b64cba1" testId="851ed307-7a34-ca9a-7931-954edb3e66d6" testName="Foodtrackr.Tests.PatientControllerTests.GetById_OtherUsersPatient_ReturnsNotFound" computerName="GODPC" duration="00:00:00.6521720" startTime="2026-06-24T09:37:35.6426186+12:00" endTime="2026-06-24T09:37:35.6426186+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6054b7da-3e4c-4a8e-b242-76341b64cba1" />
+    <UnitTestResult executionId="035b1c81-af85-4e9a-bf54-f90725c9f39e" testId="37c22769-712a-dd83-471f-d304e725d480" testName="Foodtrackr.Tests.NutritionCalculationTests.Totals_ScalePer100gByPortionWeight" computerName="GODPC" duration="00:00:00.0011601" startTime="2026-06-24T09:37:35.6939289+12:00" endTime="2026-06-24T09:37:35.6939290+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="035b1c81-af85-4e9a-bf54-f90725c9f39e" />
+    <UnitTestResult executionId="ec9a8b3c-00da-4e5f-abb9-02c22fa09bf8" testId="4ef6ca2c-a1e6-23dd-2c75-b4ec23f3dd5f" testName="Foodtrackr.Tests.ApiIntegrationTests.Register_ThenLogin_ReturnsToken" computerName="GODPC" duration="00:00:00.0834093" startTime="2026-06-24T09:37:36.0793912+12:00" endTime="2026-06-24T09:37:36.0793913+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ec9a8b3c-00da-4e5f-abb9-02c22fa09bf8" />
+    <UnitTestResult executionId="c98b894d-6df7-44e1-8a32-b622394a8b69" testId="22a1272c-c69c-3aab-073f-871b358c94ca" testName="Foodtrackr.Tests.PatientControllerTests.Update_ChangesEditableFields" computerName="GODPC" duration="00:00:00.0052127" startTime="2026-06-24T09:37:35.6626408+12:00" endTime="2026-06-24T09:37:35.6626410+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c98b894d-6df7-44e1-8a32-b622394a8b69" />
+    <UnitTestResult executionId="961b1980-f3fa-4b89-893f-ee38346cc64c" testId="74aac1bb-f6d4-5874-ac2d-3bbb0536a1c4" testName="Foodtrackr.Tests.AuthControllerTests.Register_WeakPassword_ReturnsBadRequest" computerName="GODPC" duration="00:00:00.0023338" startTime="2026-06-24T09:37:35.6442037+12:00" endTime="2026-06-24T09:37:35.6442038+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="961b1980-f3fa-4b89-893f-ee38346cc64c" />
+    <UnitTestResult executionId="790a057b-2cd3-4636-9c0a-1d5f811ac93f" testId="6f51a527-6694-f148-b4a9-7346a8d60e95" testName="Foodtrackr.Tests.NutritionCalculationTests.Totals_HalfPortion_HalvesValues" computerName="GODPC" duration="00:00:00.7005053" startTime="2026-06-24T09:37:35.6901608+12:00" endTime="2026-06-24T09:37:35.6901609+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="790a057b-2cd3-4636-9c0a-1d5f811ac93f" />
+    <UnitTestResult executionId="480bf856-357f-4820-bea2-a2968211d8a3" testId="89c55b3a-f561-7318-1b50-5a74a14bdc13" testName="Foodtrackr.Tests.PatientControllerTests.Update_MissingPatient_ReturnsNotFound" computerName="GODPC" duration="00:00:00.0154994" startTime="2026-06-24T09:37:35.6573770+12:00" endTime="2026-06-24T09:37:35.6573772+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="480bf856-357f-4820-bea2-a2968211d8a3" />
+    <UnitTestResult executionId="0984a765-3b1a-47a7-b458-1622e9fa8e76" testId="0daa4737-ce72-0186-53e6-c5daa03c88b7" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 50, expectedCalcium: 1300)" computerName="GODPC" duration="00:00:00.0000009" startTime="2026-06-24T09:37:35.0931688+12:00" endTime="2026-06-24T09:37:35.0931689+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0984a765-3b1a-47a7-b458-1622e9fa8e76" />
+    <UnitTestResult executionId="4e0a2210-2cae-425a-8b36-9d49c4ac9562" testId="fe77308f-1a76-c286-26af-5cd5653ec1bc" testName="Foodtrackr.Tests.RdiCalculatorTests.Compare_BelowSeventyPercent_IsDeficient" computerName="GODPC" duration="00:00:00.0000656" startTime="2026-06-24T09:37:35.0934645+12:00" endTime="2026-06-24T09:37:35.0934645+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4e0a2210-2cae-425a-8b36-9d49c4ac9562" />
+    <UnitTestResult executionId="f3cbd01c-7cab-4877-9d0b-d13c597d5732" testId="5ecfe836-3835-4d11-3d43-acdab7f99fdc" testName="Foodtrackr.Tests.RdiCalculatorTests.Compare_Sodium_OverLimitIsExcess_LowerIsBetter" computerName="GODPC" duration="00:00:00.0000805" startTime="2026-06-24T09:37:35.0933982+12:00" endTime="2026-06-24T09:37:35.0933982+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f3cbd01c-7cab-4877-9d0b-d13c597d5732" />
+    <UnitTestResult executionId="2fa72676-84c6-4dc6-802c-0a6322131e4a" testId="2022586e-3bba-eb3c-a29d-1086eb008be5" testName="Foodtrackr.Tests.FoodLogControllerTests.LogFood_Custom_StoresCustomNameAndGeneratedFoodId" computerName="GODPC" duration="00:00:00.0054875" startTime="2026-06-24T09:37:35.6741027+12:00" endTime="2026-06-24T09:37:35.6741028+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2fa72676-84c6-4dc6-802c-0a6322131e4a" />
+    <UnitTestResult executionId="e0600b06-22cf-4823-8f26-725a4107bba1" testId="ac3f9782-df1f-b8e3-a8a1-f35f31d3fe02" testName="Foodtrackr.Tests.PatientControllerTests.Create_PersistsPatient_AndStampsCurrentUser" computerName="GODPC" duration="00:00:00.0035961" startTime="2026-06-24T09:37:35.6837960+12:00" endTime="2026-06-24T09:37:35.6837968+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e0600b06-22cf-4823-8f26-725a4107bba1" />
+    <UnitTestResult executionId="8555e621-7506-4c4c-8fce-46f8b513ceca" testId="da596c36-b407-bd63-2e70-d092e20248f4" testName="Foodtrackr.Tests.AuthControllerTests.Login_CorrectCredentials_ReturnsJwtTokenCarryingUserId" computerName="GODPC" duration="00:00:00.0709402" startTime="2026-06-24T09:37:35.8512170+12:00" endTime="2026-06-24T09:37:35.8512172+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8555e621-7506-4c4c-8fce-46f8b513ceca" />
+    <UnitTestResult executionId="6d49d066-65c1-4ac8-9340-b64b04d6a6ba" testId="4e873555-3a73-9843-93a6-2cb860d432ba" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 49, expectedCalcium: 1000)" computerName="GODPC" duration="00:00:00.0000029" startTime="2026-06-24T09:37:35.0790879+12:00" endTime="2026-06-24T09:37:35.0790879+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d49d066-65c1-4ac8-9340-b64b04d6a6ba" />
+    <UnitTestResult executionId="b814da78-6ea6-43c7-80c3-f60f008f17c4" testId="057d1bb7-2583-1b6a-56a9-4429fe0f0ce8" testName="Foodtrackr.Tests.RdiCalculatorTests.Compare_WithinRange_IsOk" computerName="GODPC" duration="00:00:00.0856454" startTime="2026-06-24T09:37:35.0769210+12:00" endTime="2026-06-24T09:37:35.0769362+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b814da78-6ea6-43c7-80c3-f60f008f17c4" />
+    <UnitTestResult executionId="fcd6a813-6ee0-41b9-acfb-9d28092844ab" testId="be8c6896-c6ea-f82f-9861-e68a1eaee17c" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Iron_HigherForPremenopausalFemale" computerName="GODPC" duration="00:00:00.0000329" startTime="2026-06-24T09:37:35.0934484+12:00" endTime="2026-06-24T09:37:35.0934485+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fcd6a813-6ee0-41b9-acfb-9d28092844ab" />
+    <UnitTestResult executionId="677a610b-9735-474b-881e-701a0f79652f" testId="54b3ae12-f03b-c53e-5295-dbe11c83df0e" testName="Foodtrackr.Tests.FoodLogControllerTests.GetByPatient_FiltersByDate" computerName="GODPC" duration="00:00:00.6788769" startTime="2026-06-24T09:37:35.6685641+12:00" endTime="2026-06-24T09:37:35.6685642+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="677a610b-9735-474b-881e-701a0f79652f" />
+    <UnitTestResult executionId="419b205d-747a-4e22-b9f7-a2c50971dd7d" testId="c1d1939d-9a25-0ea4-3b1b-0a65a96105d1" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Energy_MatchesMifflinStJeorInKilojoules" computerName="GODPC" duration="00:00:00.0000358" startTime="2026-06-24T09:37:35.0934160+12:00" endTime="2026-06-24T09:37:35.0934160+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="419b205d-747a-4e22-b9f7-a2c50971dd7d" />
+    <UnitTestResult executionId="69bfc81c-6873-49ba-a9d5-715169cae022" testId="24dc4d21-ceb5-b844-050c-9d30703ec7ac" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 30, expectedCalcium: 1000)" computerName="GODPC" duration="00:00:00.0001665" startTime="2026-06-24T09:37:35.0790729+12:00" endTime="2026-06-24T09:37:35.0790729+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="69bfc81c-6873-49ba-a9d5-715169cae022" />
+    <UnitTestResult executionId="3fe927f6-4aa1-494c-8ba7-618a6f3c2511" testId="0f78a943-0029-b75e-3a8d-ebcd324943a1" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 65, expectedCalcium: 1300)" computerName="GODPC" duration="00:00:00.0021422" startTime="2026-06-24T09:37:35.0789332+12:00" endTime="2026-06-24T09:37:35.0789333+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fe927f6-4aa1-494c-8ba7-618a6f3c2511" />
+    <UnitTestResult executionId="e843ac2e-4b2d-4054-bd72-1c273db94d85" testId="7e0709b3-a59d-b254-034d-c5c42ff3e845" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Female_UsesFemaleProteinTarget" computerName="GODPC" duration="00:00:00.0000370" startTime="2026-06-24T09:37:35.0934327+12:00" endTime="2026-06-24T09:37:35.0934327+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e843ac2e-4b2d-4054-bd72-1c273db94d85" />
+    <UnitTestResult executionId="a11307a0-4e33-401f-8a83-8958a3d29271" testId="8557cc88-627d-0670-5661-7694293f1134" testName="Foodtrackr.Tests.AuthControllerTests.Login_UnknownEmail_ReturnsUnauthorized" computerName="GODPC" duration="00:00:00.6521325" startTime="2026-06-24T09:37:35.6418126+12:00" endTime="2026-06-24T09:37:35.6418127+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a11307a0-4e33-401f-8a83-8958a3d29271" />
+    <UnitTestResult executionId="3169a16e-8a50-4091-84c5-4a040dfc71a3" testId="18262369-01db-ae25-7d01-554d074f827d" testName="Foodtrackr.Tests.FoodLogControllerTests.GetByPatient_UnknownPatient_ReturnsNotFound" computerName="GODPC" duration="00:00:00.0006386" startTime="2026-06-24T09:37:35.6747757+12:00" endTime="2026-06-24T09:37:35.6747758+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3169a16e-8a50-4091-84c5-4a040dfc71a3" />
+    <UnitTestResult executionId="7eb75239-0daa-4324-a2cd-71d96c3948fd" testId="d0f28afe-0b46-9a70-4d26-29f447886f0f" testName="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Male_UsesMaleProteinTarget" computerName="GODPC" duration="00:00:00.0000646" startTime="2026-06-24T09:37:35.0933786+12:00" endTime="2026-06-24T09:37:35.0933786+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7eb75239-0daa-4324-a2cd-71d96c3948fd" />
+    <UnitTestResult executionId="2ac570ee-864e-4ae2-9d6f-0c5d3d7c5cf0" testId="e1189593-1f16-c4f7-4ed5-2e90f618512f" testName="Foodtrackr.Tests.FoodLogControllerTests.LogFood_UnknownPatient_ReturnsNotFound" computerName="GODPC" duration="00:00:00.0009475" startTime="2026-06-24T09:37:35.6935998+12:00" endTime="2026-06-24T09:37:35.6935999+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ac570ee-864e-4ae2-9d6f-0c5d3d7c5cf0" />
+    <UnitTestResult executionId="66681476-e59d-4a11-adba-18d3cbffa5de" testId="245b8797-1d2b-6dc5-54de-e0f9b1a6682f" testName="Foodtrackr.Tests.FoodLogControllerTests.LogFood_KnownFood_PersistsEntry" computerName="GODPC" duration="00:00:00.0124185" startTime="2026-06-24T09:37:35.6926164+12:00" endTime="2026-06-24T09:37:35.6926165+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="66681476-e59d-4a11-adba-18d3cbffa5de" />
+    <UnitTestResult executionId="10d8777b-ea98-4726-bd34-220bdaa34776" testId="cdc1b0dc-bfba-ed1b-c051-01ff06bdaa06" testName="Foodtrackr.Tests.PatientControllerTests.Delete_OtherUsersPatient_ReturnsNotFound_AndKeepsRow" computerName="GODPC" duration="00:00:00.0009501" startTime="2026-06-24T09:37:35.6724966+12:00" endTime="2026-06-24T09:37:35.6724967+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="10d8777b-ea98-4726-bd34-220bdaa34776" />
+    <UnitTestResult executionId="c67bce33-f615-445a-855e-48509d336f77" testId="686d3c3b-4416-1efe-e0f7-6ff2bce033e5" testName="Foodtrackr.Tests.ApiIntegrationTests.LogFood_ThenRetrieve_RoundTripsOverHttp" computerName="GODPC" duration="00:00:00.2792209" startTime="2026-06-24T09:37:35.8162411+12:00" endTime="2026-06-24T09:37:35.8162412+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c67bce33-f615-445a-855e-48509d336f77" />
+    <UnitTestResult executionId="2772e4f8-3da4-40a7-8b49-c78ddc6817c4" testId="788e751a-4879-51ca-b86c-de0c5184b5e9" testName="Foodtrackr.Tests.FoodLogControllerTests.LogFood_UnknownFood_ReturnsNotFound" computerName="GODPC" duration="00:00:00.0009723" startTime="2026-06-24T09:37:35.6946308+12:00" endTime="2026-06-24T09:37:35.6946310+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2772e4f8-3da4-40a7-8b49-c78ddc6817c4" />
+    <UnitTestResult executionId="a49b7e32-9a80-46c1-bc48-bd8690cdc3cd" testId="2274ed2d-497d-4c50-a68a-60496fef13e0" testName="Foodtrackr.Tests.FoodLogControllerTests.GetByPatient_ReturnsEntriesNewestFirst" computerName="GODPC" duration="00:00:00.0053338" startTime="2026-06-24T09:37:35.6801731+12:00" endTime="2026-06-24T09:37:35.6801731+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a49b7e32-9a80-46c1-bc48-bd8690cdc3cd" />
+    <UnitTestResult executionId="a269d4e1-3e38-4a53-b3f7-8bf80cbcb911" testId="abefef51-cf0a-e0c6-71a0-b4c2c2dcd19c" testName="Foodtrackr.Tests.AuthControllerTests.Register_ValidCredentials_ReturnsOk_AndCreatesUser" computerName="GODPC" duration="00:00:00.0355291" startTime="2026-06-24T09:37:35.7802063+12:00" endTime="2026-06-24T09:37:35.7802064+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a269d4e1-3e38-4a53-b3f7-8bf80cbcb911" />
+    <UnitTestResult executionId="a211bf69-6bb0-4523-97f2-f8df11f68fdf" testId="fa8a4ccf-5c3f-fac5-8404-fb9f6c8fcf64" testName="Foodtrackr.Tests.PatientControllerTests.GetAll_ReturnsOnlyCurrentUsersPatients_OrderedByName" computerName="GODPC" duration="00:00:00.0076176" startTime="2026-06-24T09:37:35.6801572+12:00" endTime="2026-06-24T09:37:35.6801573+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a211bf69-6bb0-4523-97f2-f8df11f68fdf" />
+    <UnitTestResult executionId="9d64a1ae-ac2d-41cb-8b54-9217eb557ed3" testId="d61cdce9-fc5f-e7b5-9cfa-1fd549468a02" testName="Foodtrackr.Tests.NutritionCalculationTests.Totals_SumAcrossMultipleEntries" computerName="GODPC" duration="00:00:00.0011929" startTime="2026-06-24T09:37:35.6928713+12:00" endTime="2026-06-24T09:37:35.6928713+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9d64a1ae-ac2d-41cb-8b54-9217eb557ed3" />
+    <UnitTestResult executionId="351cd18a-d4da-454d-8370-e87aeab70a3c" testId="4e753b18-bb4e-5249-6d86-6beff4e326f9" testName="Foodtrackr.Tests.NutritionCalculationTests.Totals_ExcludeOtherDays" computerName="GODPC" duration="00:00:00.0012783" startTime="2026-06-24T09:37:35.6914870+12:00" endTime="2026-06-24T09:37:35.6914871+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="351cd18a-d4da-454d-8370-e87aeab70a3c" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Foodtrackr.Tests.PatientControllerTests.Update_MissingPatient_ReturnsNotFound" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="89c55b3a-f561-7318-1b50-5a74a14bdc13">
+      <Execution id="480bf856-357f-4820-bea2-a2968211d8a3" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.PatientControllerTests" name="Update_MissingPatient_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.NutritionCalculationTests.Totals_SumAcrossMultipleEntries" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="d61cdce9-fc5f-e7b5-9cfa-1fd549468a02">
+      <Execution id="9d64a1ae-ac2d-41cb-8b54-9217eb557ed3" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.NutritionCalculationTests" name="Totals_SumAcrossMultipleEntries" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Iron_HigherForPremenopausalFemale" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="be8c6896-c6ea-f82f-9861-e68a1eaee17c">
+      <Execution id="fcd6a813-6ee0-41b9-acfb-9d28092844ab" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Iron_HigherForPremenopausalFemale" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.NutritionCalculationTests.Totals_ScalePer100gByPortionWeight" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="37c22769-712a-dd83-471f-d304e725d480">
+      <Execution id="035b1c81-af85-4e9a-bf54-f90725c9f39e" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.NutritionCalculationTests" name="Totals_ScalePer100gByPortionWeight" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.FoodLogControllerTests.GetByPatient_FiltersByDate" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="54b3ae12-f03b-c53e-5295-dbe11c83df0e">
+      <Execution id="677a610b-9735-474b-881e-701a0f79652f" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.FoodLogControllerTests" name="GetByPatient_FiltersByDate" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.PatientControllerTests.Delete_RemovesPatient_ReturnsNoContent" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="a195e513-e087-42bc-2257-cdd84a2c679b">
+      <Execution id="d43b693d-7dde-4d01-9f16-8da9e4f1593a" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.PatientControllerTests" name="Delete_RemovesPatient_ReturnsNoContent" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.PatientControllerTests.Update_ChangesEditableFields" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="22a1272c-c69c-3aab-073f-871b358c94ca">
+      <Execution id="c98b894d-6df7-44e1-8a32-b622394a8b69" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.PatientControllerTests" name="Update_ChangesEditableFields" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.AuthControllerTests.Login_UnknownEmail_ReturnsUnauthorized" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="8557cc88-627d-0670-5661-7694293f1134">
+      <Execution id="a11307a0-4e33-401f-8a83-8958a3d29271" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.AuthControllerTests" name="Login_UnknownEmail_ReturnsUnauthorized" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.FoodLogControllerTests.LogFood_UnknownPatient_ReturnsNotFound" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="e1189593-1f16-c4f7-4ed5-2e90f618512f">
+      <Execution id="2ac570ee-864e-4ae2-9d6f-0c5d3d7c5cf0" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.FoodLogControllerTests" name="LogFood_UnknownPatient_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 30, expectedCalcium: 1000)" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="24dc4d21-ceb5-b844-050c-9d30703ec7ac">
+      <Execution id="69bfc81c-6873-49ba-a9d5-715169cae022" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Calcium_DependsOnAge" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.PatientControllerTests.Delete_OtherUsersPatient_ReturnsNotFound_AndKeepsRow" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="cdc1b0dc-bfba-ed1b-c051-01ff06bdaa06">
+      <Execution id="10d8777b-ea98-4726-bd34-220bdaa34776" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.PatientControllerTests" name="Delete_OtherUsersPatient_ReturnsNotFound_AndKeepsRow" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.ApiIntegrationTests.CreatePatient_ThenList_ReturnsCreatedPatient" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="25896b50-36c1-951c-8874-46ff037946f1">
+      <Execution id="29dc53b9-8e40-4ae9-a5d0-5abd9e12f097" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.ApiIntegrationTests" name="CreatePatient_ThenList_ReturnsCreatedPatient" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.ApiIntegrationTests.LogFood_ThenRetrieve_RoundTripsOverHttp" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="686d3c3b-4416-1efe-e0f7-6ff2bce033e5">
+      <Execution id="c67bce33-f615-445a-855e-48509d336f77" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.ApiIntegrationTests" name="LogFood_ThenRetrieve_RoundTripsOverHttp" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.NutritionCalculationTests.Totals_HalfPortion_HalvesValues" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="6f51a527-6694-f148-b4a9-7346a8d60e95">
+      <Execution id="790a057b-2cd3-4636-9c0a-1d5f811ac93f" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.NutritionCalculationTests" name="Totals_HalfPortion_HalvesValues" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.AuthControllerTests.Login_CorrectCredentials_ReturnsJwtTokenCarryingUserId" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="da596c36-b407-bd63-2e70-d092e20248f4">
+      <Execution id="8555e621-7506-4c4c-8fce-46f8b513ceca" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.AuthControllerTests" name="Login_CorrectCredentials_ReturnsJwtTokenCarryingUserId" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 65, expectedCalcium: 1300)" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="0f78a943-0029-b75e-3a8d-ebcd324943a1">
+      <Execution id="3fe927f6-4aa1-494c-8ba7-618a6f3c2511" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Calcium_DependsOnAge" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.AuthControllerTests.Login_WrongPassword_ReturnsUnauthorized" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="1f7a0732-738a-d3e6-1e50-bd9de05022d1">
+      <Execution id="da86f6f7-dc01-4cee-8573-f5818e3e6662" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.AuthControllerTests" name="Login_WrongPassword_ReturnsUnauthorized" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.PatientControllerTests.Create_PersistsPatient_AndStampsCurrentUser" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="ac3f9782-df1f-b8e3-a8a1-f35f31d3fe02">
+      <Execution id="e0600b06-22cf-4823-8f26-725a4107bba1" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.PatientControllerTests" name="Create_PersistsPatient_AndStampsCurrentUser" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.ApiIntegrationTests.Login_WrongPassword_ReturnsUnauthorized" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="41381719-40ef-285b-73a0-5936b6ac4976">
+      <Execution id="5b09658e-c071-4322-acc9-f747ee0aefee" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.ApiIntegrationTests" name="Login_WrongPassword_ReturnsUnauthorized" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.Compare_Sodium_OverLimitIsExcess_LowerIsBetter" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="5ecfe836-3835-4d11-3d43-acdab7f99fdc">
+      <Execution id="f3cbd01c-7cab-4877-9d0b-d13c597d5732" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="Compare_Sodium_OverLimitIsExcess_LowerIsBetter" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 50, expectedCalcium: 1300)" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="0daa4737-ce72-0186-53e6-c5daa03c88b7">
+      <Execution id="0984a765-3b1a-47a7-b458-1622e9fa8e76" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Calcium_DependsOnAge" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.ApiIntegrationTests.Register_ThenLogin_ReturnsToken" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="4ef6ca2c-a1e6-23dd-2c75-b4ec23f3dd5f">
+      <Execution id="ec9a8b3c-00da-4e5f-abb9-02c22fa09bf8" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.ApiIntegrationTests" name="Register_ThenLogin_ReturnsToken" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.FoodLogControllerTests.LogFood_Custom_StoresCustomNameAndGeneratedFoodId" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="2022586e-3bba-eb3c-a29d-1086eb008be5">
+      <Execution id="2fa72676-84c6-4dc6-802c-0a6322131e4a" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.FoodLogControllerTests" name="LogFood_Custom_StoresCustomNameAndGeneratedFoodId" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Calcium_DependsOnAge(age: 49, expectedCalcium: 1000)" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="4e873555-3a73-9843-93a6-2cb860d432ba">
+      <Execution id="6d49d066-65c1-4ac8-9340-b64b04d6a6ba" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Calcium_DependsOnAge" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.Compare_BelowSeventyPercent_IsDeficient" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="fe77308f-1a76-c286-26af-5cd5653ec1bc">
+      <Execution id="4e0a2210-2cae-425a-8b36-9d49c4ac9562" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="Compare_BelowSeventyPercent_IsDeficient" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.FoodLogControllerTests.LogFood_KnownFood_PersistsEntry" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="245b8797-1d2b-6dc5-54de-e0f9b1a6682f">
+      <Execution id="66681476-e59d-4a11-adba-18d3cbffa5de" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.FoodLogControllerTests" name="LogFood_KnownFood_PersistsEntry" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Male_UsesMaleProteinTarget" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="d0f28afe-0b46-9a70-4d26-29f447886f0f">
+      <Execution id="7eb75239-0daa-4324-a2cd-71d96c3948fd" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Male_UsesMaleProteinTarget" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.NutritionCalculationTests.Totals_ExcludeOtherDays" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="4e753b18-bb4e-5249-6d86-6beff4e326f9">
+      <Execution id="351cd18a-d4da-454d-8370-e87aeab70a3c" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.NutritionCalculationTests" name="Totals_ExcludeOtherDays" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.FoodLogControllerTests.LogFood_UnknownFood_ReturnsNotFound" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="788e751a-4879-51ca-b86c-de0c5184b5e9">
+      <Execution id="2772e4f8-3da4-40a7-8b49-c78ddc6817c4" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.FoodLogControllerTests" name="LogFood_UnknownFood_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.PatientControllerTests.GetAll_ReturnsOnlyCurrentUsersPatients_OrderedByName" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="fa8a4ccf-5c3f-fac5-8404-fb9f6c8fcf64">
+      <Execution id="a211bf69-6bb0-4523-97f2-f8df11f68fdf" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.PatientControllerTests" name="GetAll_ReturnsOnlyCurrentUsersPatients_OrderedByName" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.PatientControllerTests.GetById_OtherUsersPatient_ReturnsNotFound" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="851ed307-7a34-ca9a-7931-954edb3e66d6">
+      <Execution id="6054b7da-3e4c-4a8e-b242-76341b64cba1" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.PatientControllerTests" name="GetById_OtherUsersPatient_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.Compare_WithinRange_IsOk" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="057d1bb7-2583-1b6a-56a9-4429fe0f0ce8">
+      <Execution id="b814da78-6ea6-43c7-80c3-f60f008f17c4" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="Compare_WithinRange_IsOk" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.FoodLogControllerTests.GetByPatient_UnknownPatient_ReturnsNotFound" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="18262369-01db-ae25-7d01-554d074f827d">
+      <Execution id="3169a16e-8a50-4091-84c5-4a040dfc71a3" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.FoodLogControllerTests" name="GetByPatient_UnknownPatient_ReturnsNotFound" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.AuthControllerTests.Register_ValidCredentials_ReturnsOk_AndCreatesUser" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="abefef51-cf0a-e0c6-71a0-b4c2c2dcd19c">
+      <Execution id="a269d4e1-3e38-4a53-b3f7-8bf80cbcb911" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.AuthControllerTests" name="Register_ValidCredentials_ReturnsOk_AndCreatesUser" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.ApiIntegrationTests.GetPatients_WithoutToken_ReturnsUnauthorized" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="7d043f1e-e4d6-68e9-e929-488175258800">
+      <Execution id="3414616a-3ad4-40b4-b98a-ffc9ce2ee891" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.ApiIntegrationTests" name="GetPatients_WithoutToken_ReturnsUnauthorized" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Female_UsesFemaleProteinTarget" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="7e0709b3-a59d-b254-034d-c5c42ff3e845">
+      <Execution id="e843ac2e-4b2d-4054-bd72-1c273db94d85" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Female_UsesFemaleProteinTarget" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.FoodLogControllerTests.GetByPatient_ReturnsEntriesNewestFirst" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="2274ed2d-497d-4c50-a68a-60496fef13e0">
+      <Execution id="a49b7e32-9a80-46c1-bc48-bd8690cdc3cd" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.FoodLogControllerTests" name="GetByPatient_ReturnsEntriesNewestFirst" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.RdiCalculatorTests.GetRdi_Energy_MatchesMifflinStJeorInKilojoules" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="c1d1939d-9a25-0ea4-3b1b-0a65a96105d1">
+      <Execution id="419b205d-747a-4e22-b9f7-a2c50971dd7d" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.RdiCalculatorTests" name="GetRdi_Energy_MatchesMifflinStJeorInKilojoules" />
+    </UnitTest>
+    <UnitTest name="Foodtrackr.Tests.AuthControllerTests.Register_WeakPassword_ReturnsBadRequest" storage="c:\users\taylo\source\repos\foodtrackr\foodtrackr.tests\bin\debug\net9.0\foodtrackr.tests.dll" id="74aac1bb-f6d4-5874-ac2d-3bbb0536a1c4">
+      <Execution id="961b1980-f3fa-4b89-893f-ee38346cc64c" />
+      <TestMethod codeBase="C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Foodtrackr.Tests.AuthControllerTests" name="Register_WeakPassword_ReturnsBadRequest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="a195e513-e087-42bc-2257-cdd84a2c679b" executionId="d43b693d-7dde-4d01-9f16-8da9e4f1593a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41381719-40ef-285b-73a0-5936b6ac4976" executionId="5b09658e-c071-4322-acc9-f747ee0aefee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="25896b50-36c1-951c-8874-46ff037946f1" executionId="29dc53b9-8e40-4ae9-a5d0-5abd9e12f097" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1f7a0732-738a-d3e6-1e50-bd9de05022d1" executionId="da86f6f7-dc01-4cee-8573-f5818e3e6662" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7d043f1e-e4d6-68e9-e929-488175258800" executionId="3414616a-3ad4-40b4-b98a-ffc9ce2ee891" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="851ed307-7a34-ca9a-7931-954edb3e66d6" executionId="6054b7da-3e4c-4a8e-b242-76341b64cba1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="37c22769-712a-dd83-471f-d304e725d480" executionId="035b1c81-af85-4e9a-bf54-f90725c9f39e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ef6ca2c-a1e6-23dd-2c75-b4ec23f3dd5f" executionId="ec9a8b3c-00da-4e5f-abb9-02c22fa09bf8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="22a1272c-c69c-3aab-073f-871b358c94ca" executionId="c98b894d-6df7-44e1-8a32-b622394a8b69" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="74aac1bb-f6d4-5874-ac2d-3bbb0536a1c4" executionId="961b1980-f3fa-4b89-893f-ee38346cc64c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="6f51a527-6694-f148-b4a9-7346a8d60e95" executionId="790a057b-2cd3-4636-9c0a-1d5f811ac93f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="89c55b3a-f561-7318-1b50-5a74a14bdc13" executionId="480bf856-357f-4820-bea2-a2968211d8a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0daa4737-ce72-0186-53e6-c5daa03c88b7" executionId="0984a765-3b1a-47a7-b458-1622e9fa8e76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fe77308f-1a76-c286-26af-5cd5653ec1bc" executionId="4e0a2210-2cae-425a-8b36-9d49c4ac9562" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5ecfe836-3835-4d11-3d43-acdab7f99fdc" executionId="f3cbd01c-7cab-4877-9d0b-d13c597d5732" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2022586e-3bba-eb3c-a29d-1086eb008be5" executionId="2fa72676-84c6-4dc6-802c-0a6322131e4a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac3f9782-df1f-b8e3-a8a1-f35f31d3fe02" executionId="e0600b06-22cf-4823-8f26-725a4107bba1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da596c36-b407-bd63-2e70-d092e20248f4" executionId="8555e621-7506-4c4c-8fce-46f8b513ceca" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4e873555-3a73-9843-93a6-2cb860d432ba" executionId="6d49d066-65c1-4ac8-9340-b64b04d6a6ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="057d1bb7-2583-1b6a-56a9-4429fe0f0ce8" executionId="b814da78-6ea6-43c7-80c3-f60f008f17c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="be8c6896-c6ea-f82f-9861-e68a1eaee17c" executionId="fcd6a813-6ee0-41b9-acfb-9d28092844ab" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54b3ae12-f03b-c53e-5295-dbe11c83df0e" executionId="677a610b-9735-474b-881e-701a0f79652f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c1d1939d-9a25-0ea4-3b1b-0a65a96105d1" executionId="419b205d-747a-4e22-b9f7-a2c50971dd7d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="24dc4d21-ceb5-b844-050c-9d30703ec7ac" executionId="69bfc81c-6873-49ba-a9d5-715169cae022" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0f78a943-0029-b75e-3a8d-ebcd324943a1" executionId="3fe927f6-4aa1-494c-8ba7-618a6f3c2511" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7e0709b3-a59d-b254-034d-c5c42ff3e845" executionId="e843ac2e-4b2d-4054-bd72-1c273db94d85" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8557cc88-627d-0670-5661-7694293f1134" executionId="a11307a0-4e33-401f-8a83-8958a3d29271" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="18262369-01db-ae25-7d01-554d074f827d" executionId="3169a16e-8a50-4091-84c5-4a040dfc71a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0f28afe-0b46-9a70-4d26-29f447886f0f" executionId="7eb75239-0daa-4324-a2cd-71d96c3948fd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1189593-1f16-c4f7-4ed5-2e90f618512f" executionId="2ac570ee-864e-4ae2-9d6f-0c5d3d7c5cf0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="245b8797-1d2b-6dc5-54de-e0f9b1a6682f" executionId="66681476-e59d-4a11-adba-18d3cbffa5de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cdc1b0dc-bfba-ed1b-c051-01ff06bdaa06" executionId="10d8777b-ea98-4726-bd34-220bdaa34776" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="686d3c3b-4416-1efe-e0f7-6ff2bce033e5" executionId="c67bce33-f615-445a-855e-48509d336f77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="788e751a-4879-51ca-b86c-de0c5184b5e9" executionId="2772e4f8-3da4-40a7-8b49-c78ddc6817c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2274ed2d-497d-4c50-a68a-60496fef13e0" executionId="a49b7e32-9a80-46c1-bc48-bd8690cdc3cd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="abefef51-cf0a-e0c6-71a0-b4c2c2dcd19c" executionId="a269d4e1-3e38-4a53-b3f7-8bf80cbcb911" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fa8a4ccf-5c3f-fac5-8404-fb9f6c8fcf64" executionId="a211bf69-6bb0-4523-97f2-f8df11f68fdf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d61cdce9-fc5f-e7b5-9cfa-1fd549468a02" executionId="9d64a1ae-ac2d-41cb-8b54-9217eb557ed3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4e753b18-bb4e-5249-6d86-6beff4e326f9" executionId="351cd18a-d4da-454d-8370-e87aeab70a3c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="39" executed="39" passed="39" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 9.0.14)&#xD;
+[xUnit.net 00:00:00.36]   Discovering: Foodtrackr.Tests&#xD;
+[xUnit.net 00:00:00.38]   Discovered:  Foodtrackr.Tests&#xD;
+[xUnit.net 00:00:00.39]   Starting:    Foodtrackr.Tests&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]&#xD;
+      Failed to determine the https port for redirect.&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 1 entities to in-memory store.&#xD;
+[xUnit.net 00:00:01.50]   Finished:    Foodtrackr.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

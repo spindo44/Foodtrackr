@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Foodtrackr.Api -> C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Api\bin\Debug\net9.0\Foodtrackr.Api.dll
+  Foodtrackr.Tests -> C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll
+Test run for C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\bin\Debug\net9.0\Foodtrackr.Tests.dll (.NETCoreApp,Version=v9.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Users\taylo\source\repos\Foodtrackr\Foodtrackr.Tests\TestResults\TestResults.trx
+
+Passed!  - Failed:     0, Passed:    39, Skipped:     0, Total:    39, Duration: 1 s - Foodtrackr.Tests.dll (net9.0)
+
+Workload updates are available. Run `dotnet workload list` for more information.
